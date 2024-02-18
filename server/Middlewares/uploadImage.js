@@ -1,0 +1,3 @@
+// Configure multer setup for image upload, 
+// Add error handle to accept, (.jpg, .jpeg, .png)...
+// Multer

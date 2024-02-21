@@ -1,21 +1,8 @@
 // User Routes
  const express = require('express')
  const router = express.Router()
-
  const registerUser = require('../Controllers/userController')
-
-router.post ('/register', registerUser)
-
-
-
-
-
-
-module.exports = router
-
 const multer = require('multer')
-const express = require('express');
-const userRouter = express.Router()
 const uploadImage = require('../Middlewares/uploadImage')
 
 
@@ -46,7 +33,9 @@ const upload = multer({
         }
 })
 
-userRouter.post('/api/upload', upload.single('file'), uploadImage )
 
 
-module.exports = userRouter
+router.post('/api/upload', upload.single('file'), uploadImage )
+router.post ('/register', registerUser)
+
+module.exports = router

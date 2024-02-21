@@ -1,4 +1,18 @@
 // User Routes
+ const express = require('express')
+ const router = express.Router()
+
+ const registerUser = require('../Controllers/userController')
+
+router.post ('/register', registerUser)
+
+
+
+
+
+
+module.exports = router
+
 const multer = require('multer')
 const express = require('express');
 const userRouter = express.Router()

@@ -1,7 +1,22 @@
 const bcrypt = require('bcrypt')
 const mongoose = require('mongoose')
 const User = require('../Models/userModels')
+const { isEmail } = require('validator');
 
+
+const handleErrors = (error, res) => {
+    if (error instanceof mongoose.Error.ValidationError) {
+        // Handle Mongoose validation errors
+        const validationErrors = Object.values(error.errors).map((err) => err.message);
+        console.error('Validation Errors:', validationErrors);
+        // You can customize the response based on your needs
+        return res.status(400).json({ error: 'Validation failed', details: validationErrors });
+    } else {
+        // Handle other types of errors
+        console.error(error);
+        return res.status(500).json({ error: 'Internal server error' });
+    }
+}
 
 const registerUser = async (req, res) => {
 const {surname, firstname, othername, email,password,phoneNumber} = req.body
@@ -21,8 +36,11 @@ const {surname, firstname, othername, email,password,phoneNumber} = req.body
 
 
  } catch (error) {
-    console.error(error)
-    res.status(500).json({error: 'Internal server serror'})
+    // handleErrors(err)
+    // console.error(error)
+    // res.status(500).json({error: 'Internal server serror'})
+    handleErrors(error, res);
+
  }
     // Add logic to register user and 
     // handle existing user

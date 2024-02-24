@@ -1,14 +1,10 @@
 // User Routes
- const express = require('express')
- const router = express.Router()
+const express = require('express')
+const userRouter = express.Router()
+const {registerUser, uploadImage} = require('../Controllers/userController')
+const upload = require('../Middlewares/uploadImage')
 
- const registerUser = require('../Controllers/userController')
+userRouter.post('/api/upload', upload.single('file'), uploadImage)
+userRouter.post('/register', registerUser)
 
-router.post ('/register', registerUser)
-
-
-
-
-
-
-module.exports = router
+module.exports = userRouter

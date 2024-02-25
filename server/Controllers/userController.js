@@ -2,10 +2,12 @@ const bcrypt = require('bcrypt')
 const mongoose = require('mongoose')
 const User = require('../Models/userModels')
 const { isEmail } = require('validator');
+
+const sendEmail = require('../sendEmail/sendEmail')
+
 const jwt = require('jsonwebtoken');
 
 const period = 1000 * 60 * 60 * 24 * 3
-
 
 const handleErrors = (error, res) => {
     if (error instanceof mongoose.Error.ValidationError) {
@@ -37,6 +39,15 @@ const {surname, firstname, othername, email,password,phoneNumber} = req.body
         userId: generateId
     })
     
+    const subject = 'Welcome to Treasure Cart';
+    const text = 'Thank you for registering!';
+    const html = '<h1>Welcome to YourApp!</h1>';
+    
+    await sendEmail(email, subject, text, html);
+
+
+    await newUser.save ()
+    res.status(201).json({ message: 'User Created Successfully' });
     const savedUser = await newUser.save ()
     res.status(201).json({ message: 'User Created Successfully', savedUser });
 

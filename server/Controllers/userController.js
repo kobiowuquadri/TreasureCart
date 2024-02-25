@@ -2,9 +2,12 @@ const bcrypt = require('bcrypt')
 const mongoose = require('mongoose')
 const User = require('../Models/userModels')
 const { isEmail } = require('validator');
+
 const sendEmail = require('../sendEmail/sendEmail')
 
+const jwt = require('jsonwebtoken');
 
+const period = 1000 * 60 * 60 * 24 * 3
 
 const handleErrors = (error, res) => {
     if (error instanceof mongoose.Error.ValidationError) {
@@ -71,11 +74,49 @@ const uploadImage =  (req, res) => {
 }
 
 
-const loginUser = (req, res) => {
-    // add logic to authenticate user, and save the token inside a cookie for authorization
+const loginUser = async (req, res) => {
+    try{
+        const {email, password} = req.body
+        const checkUser = await User.findOne({ email})
     
+        if(!checkUser){
+            return res.status(404).json({success: false, message: "user not found"})
+        }
+        const checkPassword = await bcrypt.compare(password, checkUser.password)
+        if (!checkPassword) {
+            return res.status(401).json({ success: false, message:"Invalid Password"});
+        }
+    
+        // if the email and password is correct, generate a token to the server side
+        // const token = jwt.sign(
+        //     { id: checkUser._id },
+        //     process.env.SECRET,
+        //     { expiresIn: '1d' } 
+        //   );
+        jwt.sign({id: checkUser._id}, process.env.SECRET, {expiresIn: '1hr'}, async (err, token) => {
+            if (err){
+                throw err ;
+            }
+            res.cookie('userId', checkUser._id, { maxAge: period, httpOnly: true })
+            res.status(200).json({
+              success: true,
+              message: 'User Login Successfully',
+              checkUser,
+              token
+            })
+     
+            
+        });
 
-    // Mr Yusuf
-}
+    } 
+              
+        
+        catch (err) {
+            console.log(err.message);
+            return res.status(500).json({ success: false, message:"error from the server"});
+          }
+        // add logic to authenticate user, and save the token inside a cookie for authorization
+        // Mr Yusuf
+    }
 
 module.exports = {registerUser, uploadImage, loginUser};

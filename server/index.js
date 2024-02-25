@@ -2,15 +2,16 @@ const express = require('express')
 const app = express()
 require('dotenv').config()
 const connectToDB = require('./Database/db')
-const router = require('./Routes/userRoutes')
+const userRouter = require('./Routes/userRoutes')
 
 
 const port = process.env.PORT
 
 // Middlewares
-app.use(express.json())
 app.use(express.urlencoded({extended: true}))
-app.use(router)
+app.use(express.json())
+app.use(userRouter)
+
 
 // CORS CONFIG
 

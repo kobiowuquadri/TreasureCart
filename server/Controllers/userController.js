@@ -2,6 +2,8 @@ const bcrypt = require('bcrypt')
 const mongoose = require('mongoose')
 const User = require('../Models/userModels')
 const { isEmail } = require('validator');
+const sendEmail = require('../sendEmail/sendEmail')
+
 
 
 const handleErrors = (error, res) => {
@@ -31,6 +33,13 @@ const {surname, firstname, othername, email,password,phoneNumber} = req.body
         phoneNumber
     })
     
+    const subject = 'Welcome to Treasure Cart';
+    const text = 'Thank you for registering!';
+    const html = '<h1>Welcome to YourApp!</h1>';
+    
+    await sendEmail(email, subject, text, html);
+
+
     await newUser.save ()
     res.status(201).json({ message: 'User Created Successfully' });
 

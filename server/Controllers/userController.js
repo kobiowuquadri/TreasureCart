@@ -134,13 +134,6 @@ const loginUser = async (req, res) => {
         .status(401)
         .json({ success: false, message: 'Invalid Password' })
     }
-
-    // if the email and password is correct, generate a token to the server side
-    // const token = jwt.sign(
-    //     { id: checkUser._id },
-    //     process.env.SECRET,
-    //     { expiresIn: '1d' }
-    //   );
     jwt.sign(
       { id: checkUser._id },
       process.env.SECRET,
@@ -164,8 +157,6 @@ const loginUser = async (req, res) => {
       .status(500)
       .json({ success: false, message: 'error from the server' })
   }
-  // add logic to authenticate user, and save the token inside a cookie for authorization
-  // Mr Yusuf
 }
 
 module.exports = { registerUser, uploadImage, loginUser }

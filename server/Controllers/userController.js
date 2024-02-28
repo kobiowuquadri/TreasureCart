@@ -102,8 +102,8 @@ const registerUser = async (req, res) => {
         </html>
     `
 
-    await sendEmail(email, subject, text, html)
     const savedUser = await newUser.save()
+    await sendEmail(email, subject, text, html)
     res
       .status(201)
       .json({ success: true, message: 'User Created Successfully', savedUser })

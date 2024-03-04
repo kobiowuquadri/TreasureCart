@@ -112,6 +112,8 @@ const registerUser = async (req, res) => {
   }
 }
 
+
+
 const uploadImage = (req, res) => {
   try {
     res.json(req.file)
@@ -119,6 +121,7 @@ const uploadImage = (req, res) => {
     console.log(err.message)
   }
 }
+
 
 const loginUser = async (req, res) => {
   try {
@@ -159,4 +162,38 @@ const loginUser = async (req, res) => {
   }
 }
 
+
+const updateUser = async ( req, res) => {
+
+    try {
+        const id = req.params.id
+        const updatedUser = await User.findByIdAndUpdate(id, req.body, {new: true})
+        res.status(200).json({
+             success: true, 
+              message: 'profile updated successfully',
+               updatedUser
+        })
+        
+    } catch (err) {
+        console.log(err.message)       
+    }
+
+}
+
+const allUsers = async (req, res) => {
+    try {
+        const users = await User.find()
+          res.status(200).json({success: true, message: 'users found', users})
+
+    } catch(err){
+        console.error(err)
+        
+    }
+
+}
+
+
+module.exports = {registerUser, loginUser, updateUser, allUsers};
+
 module.exports = { registerUser, uploadImage, loginUser }
+

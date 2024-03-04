@@ -1,15 +1,16 @@
 // User Routes
 const express = require('express')
 const userRouter = express.Router()
+const {registerUser, updateUser, allUsers,loginUser, uploadImage } = require('../Controllers/userController')
+const {adminLogin, adminRegister} = require('../Controllers/adminController')
+const verifyUser = require('../Middlewares/verifyUser')
 
-const {registerUser, updateUser, allUsers,loginUser } = require('../Controllers/userController')
-userRouter.post('/register', registerUser)
-userRouter.put ('/update/:id', updateUser)
-userRouter.get ('/allusers', allUsers)
-userRouter.post('/login', loginUser)
-userRouter.post('/api/upload', upload.single('file'), uploadImage)
-userRouter.post('/adminregister', adminRegister)
-userRouter.post('/adminlogin', adminLogin)
+userRouter.post('/user-register', registerUser)
+userRouter.post('/user-login', loginUser)
+userRouter.put('/user-update/:id', verifyUser, updateUser)
+
+
+
 
 
 module.exports = userRouter

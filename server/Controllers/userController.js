@@ -193,7 +193,5 @@ const allUsers = async (req, res) => {
 }
 
 
-module.exports = {registerUser, loginUser, updateUser, allUsers};
-
-module.exports = { registerUser, uploadImage, loginUser }
+module.exports = {registerUser, loginUser, updateUser, allUsers, uploadImage};
 

@@ -61,14 +61,7 @@ const {surname, firstname, othername, email,password,phoneNumber} = req.body
     // hash password
 }
 
-const uploadImage =  (req, res) => {
-    try{
-        res.json(req.file)
-    }
-    catch(err){
-        console.log(err.message)
-    }
-}
+
 
 
 const loginUser = (req, res) => {
@@ -78,4 +71,34 @@ const loginUser = (req, res) => {
     // Mr Yusuf
 }
 
-module.exports = {registerUser, uploadImage, loginUser};
+const updateUser = async ( req, res) => {
+
+    try {
+        const id = req.params.id
+        const updatedUser = await User.findByIdAndUpdate(id, req.body, {new: true})
+        res.status(200).json({
+             success: true, 
+              message: 'profile updated successfully',
+               updatedUser
+        })
+        
+    } catch (err) {
+        console.log(err.message)       
+    }
+
+}
+
+const allUsers = async (req, res) => {
+    try {
+        const users = await User.find()
+          res.status(200).json({success: true, message: 'users found', users})
+
+    } catch(err){
+        console.error(err)
+        
+    }
+
+}
+
+
+module.exports = {registerUser, loginUser, updateUser, allUsers};

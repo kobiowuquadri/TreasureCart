@@ -1,10 +1,10 @@
 // User Routes
 const express = require('express')
 const userRouter = express.Router()
-const {registerUser, uploadImage} = require('../Controllers/userController')
-const upload = require('../Middlewares/uploadImage')
-
-userRouter.post('/api/upload', upload.single('file'), uploadImage)
+const {registerUser, updateUser, allUsers } = require('../Controllers/userController')
 userRouter.post('/register', registerUser)
+userRouter.put ('/update/:id', updateUser)
+userRouter.get ('/allusers', allUsers)
+
 
 module.exports = userRouter

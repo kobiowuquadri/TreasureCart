@@ -18,6 +18,12 @@ app.use(cookieParser())
 // CORS CONFIG
 
 
+// HOME
+app.get('/', (req, res) => {
+   res.send('Backend Working Successfully.')
+})
+
+
 
 app.listen(port, () => {
    console.log(`Server running on port ${port}`)

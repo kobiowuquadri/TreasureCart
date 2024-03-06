@@ -1,5 +1,8 @@
-const bcrypt = require('bcrypt')
 const Admin = require('../Models/adminModel')
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+
+const period = 1000 * 60 * 60 * 24 * 3
 
 
 const adminRegister = async (req, res) => {
@@ -27,12 +30,12 @@ const adminRegister = async (req, res) => {
 const adminLogin = async (req, res) => {
     try{
     const {email, password}= req.body
-    const admin = await Admin.findOne({email})
+    const isAdmin = await Admin.findOne({email})
 
-    if (!admin) {
+    if (!isAdmin) {
         return res.status(404).json({ success: false, message: 'Admin not found' })
     }
-    const checkAdminPassword = await bcrypt.compare(password, checkAdminUser.password)
+    const checkAdminPassword = await bcrypt.compare(password, isAdmin.password)
     if (!checkAdminPassword) {
       return res
         .status(401)
@@ -40,18 +43,18 @@ const adminLogin = async (req, res) => {
     }
 
     jwt.sign(
-        { id: admin._id },
+        { id: isAdmin._id },
         process.env.SECRET,
         { expiresIn: '1hr' },
         async (err, token) => {
           if (err) {
             throw err
           }
-          res.cookie('userId', admin._id, { maxAge: period, httpOnly: true })
+          res.cookie('userId', isAdmin._id, { maxAge: period, httpOnly: true })
           res.status(200).json({
             success: true,
             message: 'Admin Login Successfully',
-            admin,
+            isAdmin,
             token
           })
         }

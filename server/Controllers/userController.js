@@ -4,7 +4,6 @@ const { User, passwordValidator } = require('../Models/userModels')
 const jwt = require('jsonwebtoken')
 const sendEmail = require('../sendEmail/sendEmail')
 
-
 const period = 1000 * 60 * 60 * 24 * 3
 
 const handleErrors = (error, res) => {
@@ -112,17 +111,6 @@ const registerUser = async (req, res) => {
   }
 }
 
-
-
-const uploadImage = (req, res) => {
-  try {
-    res.json(req.file)
-  } catch (err) {
-    console.log(err.message)
-  }
-}
-
-
 const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body
@@ -162,36 +150,20 @@ const loginUser = async (req, res) => {
   }
 }
 
-
-const updateUser = async ( req, res) => {
-
-    try {
-        const id = req.params.id
-        const updatedUser = await User.findByIdAndUpdate(id, req.body, {new: true})
-        res.status(200).json({
-             success: true, 
-              message: 'profile updated successfully',
-               updatedUser
-        })
-        
-    } catch (err) {
-        console.log(err.message)       
-    }
-
+const updateUser = async (req, res) => {
+  try {
+    const id = req.params.id
+    const updatedUser = await User.findByIdAndUpdate(id, req.body, {
+      new: true
+    })
+    res.status(200).json({
+      success: true,
+      message: 'profile updated successfully',
+      updatedUser
+    })
+  } catch (err) {
+    console.log(err.message)
+  }
 }
 
-const allUsers = async (req, res) => {
-    try {
-        const users = await User.find()
-          res.status(200).json({success: true, message: 'users found', users})
-
-    } catch(err){
-        console.error(err)
-        
-    }
-
-}
-
-
-module.exports = {registerUser, loginUser, updateUser, allUsers, uploadImage};
-
+module.exports = { registerUser, loginUser, updateUser }

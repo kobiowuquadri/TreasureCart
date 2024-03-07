@@ -1,5 +1,4 @@
 const Admin = require('../Models/adminModel')
-const subAdmin = require('../Models/subadminModel')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
@@ -27,30 +26,6 @@ const adminRegister = async (req, res) => {
     }
      
 }
-
-
-const subadminRegister = async (req, res) => {
-  try{
-      const { email, password, username} = req.body
-      const existingsubAdmin = await subAdmin.findOne({email})
-      if(existingsubAdmin){
-          return res.status(404).json({ success: false,  message: 'subAdmin already Registered' })
-      }
-      const hashPassword = await bcrypt.hash(password, 10)
-      const newsubAdmin = subAdmin({
-          email,
-          password : hashPassword,
-          username
-      })
-      const savedsubAdmin = await newsubAdmin.save()
-      res.status(200).json({ success: true, message: 'subAdmin created', savedsubAdmin })
-  }
-  catch(err){
-      console.log(err.message)
-  }
-   
-}
-
 
 const adminLogin = async (req, res) => {
     try{
@@ -92,4 +67,4 @@ const adminLogin = async (req, res) => {
 
 }
 
-module.exports = {adminLogin, adminRegister, subadminRegister}
+module.exports = {adminLogin, adminRegister}

@@ -2,6 +2,7 @@ const Admin = require('../Models/adminModel')
 const subAdmin = require('../Models/subadminModel')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const { User, passwordValidator } = require('../Models/userModels')
 
 const period = 1000 * 60 * 60 * 24 * 3
 
@@ -92,4 +93,21 @@ const adminLogin = async (req, res) => {
 
 }
 
-module.exports = {adminLogin, adminRegister, subadminRegister}
+
+const updateProfileByAdmin = async (req, res) => {
+    try {
+      const { userId } = req.params;
+  
+      const updatedUser = await User.findByIdAndUpdate(userId, req.body, {
+        new: true
+      })
+
+      res.status(200).json({ success: true, message: 'User profile updated', updatedUser });
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({ success: false, message: 'Internal Server Error' });
+    }
+  };
+  
+  
+module.exports = {adminLogin, adminRegister, subadminRegister, updateProfileByAdmin}

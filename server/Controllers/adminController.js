@@ -1,171 +1,160 @@
-const Admin = require("../Models/adminModel");
-const subAdmin = require("../Models/subadminModel");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-const { User, passwordValidator } = require("../Models/userModels");
+const Admin = require('../Models/adminModel')
+const subAdmin = require('../Models/subadminModel')
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+const { User, passwordValidator } = require('../Models/userModels')
 
-const period = 1000 * 60 * 60 * 24 * 3;
+const period = 1000 * 60 * 60 * 24 * 3
 
 const adminRegister = async (req, res) => {
   try {
-    const { email, password, username } = req.body;
-    const existingAdmin = await Admin.findOne({ email });
+    const { email, password, username } = req.body
+    const existingAdmin = await Admin.findOne({ email })
     if (existingAdmin) {
       return res
         .status(404)
-        .json({ success: false, message: "Admin already Registered" });
+        .json({ success: false, message: 'Admin already Registered' })
     }
-    const hashPassword = await bcrypt.hash(password, 10);
+    const hashPassword = await bcrypt.hash(password, 10)
     const newAdmin = Admin({
       email,
       password: hashPassword,
-      username,
-    });
-    const savedAdmin = await newAdmin.save();
+      username
+    })
+    const savedAdmin = await newAdmin.save()
     res
       .status(200)
-      .json({ success: true, message: "Admin created", savedAdmin });
+      .json({ success: true, message: 'Admin created', savedAdmin })
   } catch (err) {
-    console.log(err.message);
+    console.log(err.message)
   }
-};
+}
 
-const subadminRegister = async (req, res) => {
+const adminCreateSubAdmin = async (req, res) => {
   try {
-    const { email, password, username } = req.body;
-    const existingsubAdmin = await subAdmin.findOne({ email });
+    const { email, password, username } = req.body
+    const existingsubAdmin = await subAdmin.findOne({ email })
     if (existingsubAdmin) {
       return res
         .status(404)
-        .json({ success: false, message: "subAdmin already Registered" });
+        .json({ success: false, message: 'subAdmin already Registered' })
     }
-    const hashPassword = await bcrypt.hash(password, 10);
+    const hashPassword = await bcrypt.hash(password, 10)
     const newsubAdmin = subAdmin({
       email,
       password: hashPassword,
-      username,
-    });
-    const savedsubAdmin = await newsubAdmin.save();
+      username
+    })
+    const savedsubAdmin = await newsubAdmin.save()
     res
       .status(200)
-      .json({ success: true, message: "subAdmin created", savedsubAdmin });
+      .json({ success: true, message: 'subAdmin created', savedsubAdmin })
   } catch (err) {
-    console.log(err.message);
+    console.log(err.message)
   }
-};
+}
 
 const adminLogin = async (req, res) => {
   try {
-    const { email, password } = req.body;
-    const isAdmin = await Admin.findOne({ email });
+    const { email, password } = req.body
+    const isAdmin = await Admin.findOne({ email })
 
     if (!isAdmin) {
       return res
         .status(404)
-        .json({ success: false, message: "Admin not found" });
+        .json({ success: false, message: 'Admin not found' })
     }
-    const checkAdminPassword = await bcrypt.compare(password, isAdmin.password);
+    const checkAdminPassword = await bcrypt.compare(password, isAdmin.password)
     if (!checkAdminPassword) {
       return res
         .status(401)
-        .json({ success: false, message: "Invalid Password" });
+        .json({ success: false, message: 'Invalid Password' })
     }
 
     jwt.sign(
       { id: isAdmin._id },
       process.env.SECRET,
-      { expiresIn: "1hr" },
+      { expiresIn: '1hr' },
       async (err, token) => {
         if (err) {
-          throw err;
+          throw err
         }
-        res.cookie("userId", isAdmin._id, { maxAge: period, httpOnly: true });
+        res.cookie('userId', isAdmin._id, { maxAge: period, httpOnly: true })
         res.status(200).json({
           success: true,
-          message: "Admin Login Successfully",
+          message: 'Admin Login Successfully',
           isAdmin,
-          token,
-        });
+          token
+        })
       }
-    );
+    )
   } catch (error) {
-    console.error(error);
+    console.error(error)
     return res
       .status(500)
-      .json({ success: false, message: "Internal Server Error" });
+      .json({ success: false, message: 'Internal Server Error' })
   }
-};
+}
 
-const updateProfileByAdmin = async (req, res) => {
+const adminUpdateUserProfile = async (req, res) => {
   try {
-    const { userId } = req.params;
+    const { userId } = req.params
 
     const updatedUser = await User.findByIdAndUpdate(userId, req.body, {
-      new: true,
-    });
+      new: true
+    })
 
     res
       .status(200)
-      .json({ success: true, message: "User profile updated", updatedUser });
+      .json({ success: true, message: 'User profile updated', updatedUser })
   } catch (error) {
-    console.log(error.message);
-    res.status(500).json({ success: false, message: "Internal Server Error" });
+    console.log(error.message)
+    res.status(500).json({ success: false, message: 'Internal Server Error' })
   }
-};
-
+}
 
 const allSubadmin = async (req, res) => {
   try {
-    const users = await subAdmin.find();
+    const users = await subAdmin.find()
     res
       .status(202)
-      .json({ success: true, message: "View all subadmin successful", users });
+      .json({ success: true, message: 'View all subadmin successful', users })
   } catch (err) {
-    console.log(err.message);
+    console.log(err.message)
   }
-};
+}
 
 const allUser = async (req, res) => {
   try {
-    const users = await User.find();
+    const users = await User.find()
     res
       .status(202)
-      .json({ success: true, message: "View all users Successful", users });
+      .json({ success: true, message: 'View all users Successful', users })
   } catch (err) {
-    console.log(err.message);
+    console.log(err.message)
   }
-};
+}
+
+const adminDeleteUserProfile = async (req, res) => {
+  try {
+    const { userId } = req.params
+
+    const updatedUser = await User.findByIdAndDelete(userId, req.body, {
+      new: true
+    })
+    res.status(200).json({ success: true, message: 'User profile deleted' })
+  } catch (error) {
+    console.log(error.message)
+    res.status(500).json({ success: false, message: 'Internal Server Error' })
+  }
+}
 
 module.exports = {
   adminLogin,
   adminRegister,
-  subadminRegister,
-  updateProfileByAdmin,
+  adminCreateSubAdmin,
+  adminUpdateUserProfile,
   allUser,
   allSubadmin,
-};
-      res.status(200).json({ success: true, message: 'User profile updated', updatedUser });
-    } catch (error) {
-      console.log(error.message);
-      res.status(500).json({ success: false, message: 'Internal Server Error' });
-    }
-  };
-  
-  const deleteProfileByAdmin = async (req, res) => {
-    try {
-      const { userId } = req.params;
-  
-      const updatedUser = await User.findByIdAndDelete(userId, req.body, {
-        new: true
-      })
-      res.status(200).json({ success: true, message: 'User profile deleted' });
-      
-    } catch (error) {
-      console.log(error.message);
-      res.status(500).json({ success: false, message: 'Internal Server Error' });
-    }
-  };
-  
-  
-module.exports = {adminLogin, adminRegister, subadminRegister, updateProfileByAdmin, deleteProfileByAdmin}
-
+  adminDeleteUserProfile
+}

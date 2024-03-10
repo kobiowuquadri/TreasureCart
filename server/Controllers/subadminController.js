@@ -35,4 +35,7 @@ const subadminLogin = async (req, res) => {
     }
 }
 
-module.exports = subadminLogin
+
+
+
+module.exports = {subadminLogin}

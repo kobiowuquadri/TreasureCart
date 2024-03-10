@@ -113,6 +113,7 @@ const updateProfileByAdmin = async (req, res) => {
   }
 };
 
+
 const allSubadmin = async (req, res) => {
   try {
     const users = await subAdmin.find();
@@ -143,3 +144,28 @@ module.exports = {
   allUser,
   allSubadmin,
 };
+      res.status(200).json({ success: true, message: 'User profile updated', updatedUser });
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({ success: false, message: 'Internal Server Error' });
+    }
+  };
+  
+  const deleteProfileByAdmin = async (req, res) => {
+    try {
+      const { userId } = req.params;
+  
+      const updatedUser = await User.findByIdAndDelete(userId, req.body, {
+        new: true
+      })
+      res.status(200).json({ success: true, message: 'User profile deleted' });
+      
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({ success: false, message: 'Internal Server Error' });
+    }
+  };
+  
+  
+module.exports = {adminLogin, adminRegister, subadminRegister, updateProfileByAdmin, deleteProfileByAdmin}
+

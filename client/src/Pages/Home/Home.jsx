@@ -1,4 +1,5 @@
 import React from 'react'
+
 import backgroundImage from '../Home/background.png'
 import imghome from '../Home/removedbg.png'
 import './home.css'
@@ -74,6 +75,16 @@ function Home() {
 
     
   </div>
+
+import Products from '../../Components/Products/Products'
+
+function Home() {
+  return (
+    <div>
+      <Products/>
+    </div>
+    
+
   )
 }
 

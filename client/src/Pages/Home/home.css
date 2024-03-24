@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+  .full-page-bg {
+    box-sizing: border-box;
+  }
+  .full-page-bg {
+    overflow: hidden;
+  }
+  #image{
+    width: 1000px;
+    height: 800px;
+    object-fit: cover;
+  }
+  #text{
+    margin-bottom: 20px;
+  }

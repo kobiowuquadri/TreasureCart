@@ -1,29 +1,16 @@
-*{
-    background-color: #eceeed;
+#flex2 {
+  display: grid;
+  grid-template-columns: 250px 250px 250px 250px 250px;
+  margin-top: 10px;
 }
-#flex2{
+#head {
+  color: #767776;
+}
+
+@media (max-width: 900px) {
+  #flex {
     display: grid;
-    grid-template-columns: 250px 250px 250px 250px 250px ;
-    margin-top: 10px;
-}
-#head{
-    color: #767776;   
-}
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width : 900px) {
-    #flex {
-        display: grid;
-        margin: 0 auto;
-        grid-template-columns: 300px;
-    }
+    margin: 0 auto;
+    grid-template-columns: 300px;
+  }
 }

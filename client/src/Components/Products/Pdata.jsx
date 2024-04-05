@@ -1,126 +1,54 @@
-import handbag from './Pimage/handbag.png'
+import coat from './Pimage/coat.png'
+import girlbag from './Pimage/girl bag.png'
+import pc from './Pimage/pc.png'
+import phone from './Pimage/phone stand.png'
+import ps5 from './Pimage/ps5.png'
+import watch from './Pimage/watch.png'
 
 const Pdata = [
     {
         id: 1,
-        image: [handbag],
-        Name: 'Bag',
-        price: '#50,000'
+        image: [coat],
+        Name: 'Children Jacket',
+        desc: 'Up to 8 hours of battery life With Fast Fuel, a 5-minute charge = 2 hours of playback',
+        price: '$299.95'
     },
     {
         id: 2,
-        image: [handbag],
-        Name: 'Bag',
-        price: '#50,000'
+        image: [girlbag],
+        Name: '4PC Ladies Bag',
+        desc: 'Up to 8 hours of battery life With Fast Fuel, a 5-minute charge = 2 hours of playback',
+        price: '$199.95'
     },
     {
         id: 3,
-        image: [handbag],
-        Name: 'Bag',
-        price: '#50,000'
+        image: [phone],
+        Name: 'Phone Stand',
+        desc: 'Up to 8 hours of battery life With Fast Fuel, a 5-minute charge = 2 hours of playback',
+        price: '$199.95'
     },
     {
         id: 4,
-        image: [handbag],
-        Name: 'Bag',
-        price: '#50,000'
+        image: [ps5],
+        Name: 'PS5 Console',
+        desc: 'Up to 8 hours of battery life With Fast Fuel, a 5-minute charge = 2 hours of playback',
+        price: '$999.95'
     },
     {
         id: 5,
-        image: [handbag],
-        Name: 'Bag',
-        price: '#50,000'
+        image: [pc],
+        Name: 'Asus TUF Laptop',
+        desc: 'Up to 8 hours of battery life With Fast Fuel, a 5-minute charge = 2 hours of playback',
+        price: '$99.95'
     },
     {
         id: 6,
-        image: [handbag],
-        Name: 'Bag',
-        price: '#50,000'
+        image: [watch],
+        desc: 'Up to 8 hours of battery life With Fast Fuel, a 5-minute charge = 2 hours of playback',
+        Name: 'Couple Wrist Watch',
+        price: '$299.95'
     },
-    {
-        id: 7,
-        image: [handbag],
-        Name: 'Bag',
-        price: '#50,000'
-    },
-    {
-        id: 8,
-        image: [handbag],
-        Name: 'Bag',
-        price: '#50,000'
-    },
-    {
-        id: 9,
-        image: [handbag],
-        Name: 'Bag',
-        price: '#50,000'
-    },
-    {
-        id: 10,
-        image: [handbag],
-        Name: 'Bag',
-        price: '#50,000'
-    },
-    {
-        id: 11,
-        image: [handbag],
-        Name: 'Bag',
-        price: '#50,000'
-    },
-    {
-        id: 12,
-        image: [handbag],
-        Name: 'Bag',
-        price: '#50,000'
-    },
-    {
-        id: 13,
-        image: [handbag],
-        Name: 'Bag',
-        price: '#50,000'
-    },
-    {
-        id: 14,
-        image: [handbag],
-        Name: 'Bag',
-        price: '#50,000'
-    },
-    {
-        id: 15,
-        image: [handbag],
-        Name: 'Bag',
-        price: '#50,000'
-    },
-    {
-        id: 16,
-        image: [handbag],
-        Name: 'Bag',
-        price: '#50,000'
-    },
-    {
-        id: 17,
-        image: [handbag],
-        Name: 'Bag',
-        price: '#50,000'
-    },
-    {
-        id: 18,
-        image: [handbag],
-        Name: 'Bag',
-        price: '#50,000'
-    },
-    {
-        id: 19,
-        image: [handbag],
-        Name: 'Bag',
-        price: '#50,000'
-    },
-    {
-        id: 20,
-        image: [handbag],
-        Name: 'Bag',
-        price: '#50,000'
-    },
+   
 ];
 
 export default Pdata;

@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react'
 import logo from '../HeroSection/LOGO1.png'
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa'

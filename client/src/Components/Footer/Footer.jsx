@@ -1,81 +1,60 @@
-import React from "react";
-import {
-  FaFacebook,
-  FaGithub,
-  FaInstagram,
-  FaLinkedin,
-  FaTwitter,
-} from "react-icons/fa";
+import React from 'react'
+import logo from '../HeroSection/LOGO1.png'
+import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa'
+import { RiFacebookFill } from "react-icons/ri";
+
 const sections = [
   {
-    title: "Need Help?",
+    title: 'Products',
     items: [
-      "Contact Us",
-      "Chat with Us",
-      "Help Center",
-      "Return and Exchange",
-      "Shopping guides and insights",
-    ],
+      'FASHION',
+      'EARPHONES',
+      'LAPTOPS',
+      'ACCESSORIES',
+      'BOOKS',
+      'KITCHEN',
+    ]
   },
   {
-    title: "About Us",
-    items: [
-      "About Treasure Cart",
-      "Terms and Conditions",
-      "Sales and Discounts",
-      "Sell on Treasure Cart",
-      "Privacy",
-    ],
+    title: 'Support',
+    items: ['PRODUCT HELP', 'REGISTER ','UPDATE BEATS',
+     'WARRANTY', 'CONTACT', 'IMTERNATIONAL NUMBERS']
   },
   {
-    title: "Payments",
-    items: ["Payment methods", "Coupons"],
-  },
-
-  {
-    title: "Delivery",
-    items: ["Delivery Options", "Track your items", "Info on bulk purchases"],
-  },
-];
+    title: 'Company',
+    items: ['PRODUCT HELP', 'NEWS AND EVENTS', 'PROMOTION TERMS', 'PRIVACY POLICY', 'TRADEMARK', 'COOKIES']
+  }
+]
 const items = [
   {
-    name: "Facebook",
-    icon: FaFacebook,
-    link: "https://facebook.com/",
+    name: 'Facebook',
+    icon: RiFacebookFill,
+    link: 'https://facebook.com/'
   },
   {
-    name: "Instagram",
+    name: 'Instagram',
     icon: FaInstagram,
-    link: "https://instagram.com/",
+    link: 'https://instagram.com/'
   },
   {
-    name: "Twitter",
+    name: 'Twitter',
     icon: FaTwitter,
-    link: "https://twitter.com/",
-  },
-  {
-    name: "Linkedin",
-    icon: FaLinkedin,
-    link: "https://linkedin.com/",
-  },
-  {
-    name: "Github",
-    icon: FaGithub,
-    link: "https://github.com/",
-  },
-];
-function Footer() {
+    link: 'https://twitter.com/'
+  }
+]
+function Footer () {
   return (
-    <div className="w-full mt-24 bg-[#3b8bc1] text-white py-y px-2">
-      <div className="max-w-[1240px] mx-auto grid grid-cols-2 md:grid-cols-6 border-b-2 border-white py-8">
+    <div className='w-full 	  mt-24 bg-black text-white -mb-36  py-y px-2'>
+      <img src={logo} alt="" className='-mb-36 ml-24' />
+      <div className='max-w-[1240px] mx-auto grid grid-cols-2 mr-24 md:grid-cols-6 border-b-2 border-white py-8'>
         {sections.map((section, index) => (
           <div key={index}>
-            <h6 className="font-bold uppercase pt 2">{section.title}</h6>
-            <ul>
+            <h6 className='font-bold  font-body ml-56 text-xl'>{section.title}</h6>
+            <ul className='list-none w-48 font-body ml-48'>
               {section.items.map((item, i) => (
                 <li
                   key={i}
-                  className="py-1 text-white hover-text-white cursor-pointer"
+                  className='py-1 text-white hover-text-white cursor-pointer'
                 >
                   {item}
                 </li>
@@ -83,46 +62,37 @@ function Footer() {
             </ul>
           </div>
         ))}
-        <div className=" flex col sm:w-[400px] pt-4 text 2xl">
-          <p className="">JOIN US ON : </p>
-          <div className="flex gap-5 px-4 py-1">
+        <div className=' flex ml-80 font-body font-bold flex-col sm:w-[300px] pt-4 text-4'>
+          <p className='mt-9 ml-8 text-xl'>Follow Us </p>
+          <div className='flex gap-5 px-4 py-1'>
             {items.map((x, index) => {
               return (
+                <div key={index} className='hover:bg-[#fec700] p-2 rounded-full '>
                 <x.icon
-                  key={index}
-                  className="hover:text-white cursor-pointer"
+                  className='hover:text-white cursor-pointer'
                 />
-              );
+              </div>
+              )
             })}
           </div>
         </div>
-        {/* enter mail */}
-        <div className="col-span-3 md:pt-8 ">
-          <p className="font-bold uppercase">NEW TO TREASURE CART?</p>
-
-          <p className="py-4">
-            Subscribe to our newsletter, get latest news on sales and available
-            discounts.
-          </p>
-          <form className="flex flex-col sm:flex-row ">
-            <input
-              ml-auto
-              type="email"
-              placeholder="Enter email address"
-              className="w-full p-2 mr-4 rounded-md mb-6"
-            />
-            <button className="p-2 mb-4">Submit</button>
-          </form>
-        </div>
+       
       </div>
+      {/* icons and social media */}
       <div
-        className="flex flex-col max-w-[1240px] px-2 py-4 mx-auto justify between
-      sm:flex-row text-center text-black"
+        className='flex fles-col max-w-[1240px] px-2 py-4 mx-auto justify between
+      sm:flex-row text-center text-black'
       >
-        <p className="py-2">2024 Treasure Cart</p>
+        <p className='py-2'>2024 Treasure Cart</p>
       </div>
+      <div className="footer-wrapper" style={{ position: 'relative', top: '-40px'}}>
+        <div className="copyright font-body" style={{ marginLeft: '30rem' }}>
+       <h1 className='font-thin text-sm'>Copyright 2024 Treasure Cart Inc. - All rights reserved.</h1>
     </div>
-  );
+</div>
+
+    </div>
+  )
 }
 
-export default Footer;
+export default Footer

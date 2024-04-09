@@ -1,7 +1,8 @@
-import axios from 'axios'
-import { React, useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+import axios from "axios";
+import { React, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import backgroundImage from "./cart1.png";
 
 const Login = () => {
   const [email, setEmail] = useState('')
@@ -24,112 +25,92 @@ const Login = () => {
   }
 
   return (
-    <div className=''>
-      <div className='block  md:flex md:bg-red-300  lg:flex lg:bg-blue-500  md:justify-center md:items:center h-screen'>
-        <div className='p-10 bg-white w-[550px] h-[550px] md:mt-16  md:w-[400px] md:h-[590px] lg:rounded-tl-[5px] lg:rounded-bl-[5px] md:rounded-tl-[5px] md:rounded-bl-[5px]'>
-          <div className='flex justify-center items-center lg:items-center lg:justify-center '>
-            <img src='/logo.png' className='w-[50px] h-[50px]'></img>
-            <h2>
-              <b>TreasureCart</b>
-            </h2>
-          </div>
-          <h1 className='ml-32 mt-4 text-3xl md:ml-14 md:mt-4 md:text-3xl'>
-            <b>Welcome back</b>
-          </h1>
+    <div className='w-screen h-screen'>
+      <div style={{
+      minHeight: "100vh",
+    width: "100%",
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center"
+  
+    }}>
+       <div className="ml-10 md:flex justify-center items-center md:pt-24 pt-10">
 
-          <button className='flex md:mt-4 p-2 md:bg-blue-500 md:text-white md:w-[320px] md:rounded-xl bg-blue-200 mt-8'>
-            <img src='/g.png' className='w-[10px] h-[10px] mt-2 mr-20'></img>
-            <p>Log in with Google</p>
-          </button>
-
-          <div className='flex md:mt-4 lg:mt-4 mt-8'>
-            <hr className='lg:w-20 lg:h-1 md:mr-2 lg:bg-blue-400 lg:mb-4 w-20 bg-black md:bg-gray-200 md:h-1 md:mt-3 mt-3'></hr>
-            <p className=''>Or login with Email</p>
-            <hr className='lg:w-20 md:w-18 md:ml-2 lg:h-1 lg:bg-blue-400 lg:mb-4 w-20 bg-black md:bg-gray-200 md:h-1 md:mt-3 mt-3'></hr>
-          </div>
+      <div className="bg-white p-6 rounded w-[70%] md:w-[26%] md:h-[440px] md:ml-[40%] md:mt-20 rounded-3xl">
+          <h1 className="flex justify-center items-center text-[rgb(254,177,62)] text-4xl">Sign in</h1>
 
           <form onSubmit={handleSubmit}>
-            <div className=''>
+          <div className="">
               <h2>
-                <b>Email Address</b>
+                <b>Email</b>
               </h2>
               <input
-                type='email'
-                name='email'
-                placeholder='Email Address'
+                type="email"
+                name="email"
+                placeholder="Email"
                 value={email}
-                onChange={e => setEmail(e.target.value)}
-                className='border-2 border-gray-200 bg-gray-100 p-2 outline-none  w-[320px] md:rounded-lg'
+                onChange={(e) => setEmail(e.target.value)}
+                className=" border border-1 border-gray-200 bg-gray-100 p-2 outline-none  w-[230px] md:w-[370px] md:rounded-lg "
               ></input>
             </div>
-            <div className='mt-2 md:mt-2'>
+
+
+            <div className="mt-2 md:mt-2">
               <h2>
                 <b>Password</b>
               </h2>
               <input
-                type='text'
-                name='email'
-                placeholder='Password'
+                type="text"
+                name="password"
+                placeholder="Password"
                 value={password}
-                onChange={e => setPassword(e.target.value)}
-                className='border-2 border-gray-200 bg-gray-100 p-2 outline-none  w-[320px] md:rounded-lg'
+                onChange={(e) => setPassword(e.target.value)}
+                className=" border border-[1px] border-gray-200 bg-gray-100 p-2 outline-none  w-[230px] md:w-[370px] md:rounded-lg"
               ></input>
             </div>
 
-            <div className='md:flex md:justify-between mt-4'>
-              <div className='flex '>
-                <div className='md:flex md:mr-2'>
-                  <button className='mt-2'>
-                    <img
-                      src='/checked.svg'
-                      className='absolute w-[15px] h-[2px] '
-                    ></img>
-                    <img
-                      src='/notchecked.svg'
-                      className='relative w-[15px] h-[15px]'
-                    ></img>
-                  </button>
-                </div>
-                <p className='mt-2'>
-                  <b>Keep me logged in</b>
-                </p>
-              </div>
-              <p className='mt-2 '>
-                <b>forgot passoword</b>
-              </p>
-            </div>
-
-            <button
-              type='submit'
-              value='submit'
-              className='md:rounded-lg md:p-2 bg-blue-500 md:text-white md:w-[320px] md:mt-4'
-            >
-              Log in
-            </button>
-            <div className='flex mt-4 ml-12'>
-              <p className='mr-2'>Dont have an account?</p>
-              <Link to={'/register'}>Sign up</Link>
-            </div>
-          </form>
-        </div>
-
-        <div className='w-[550px] h-[550px] mt-16 bg-red-300 md:w-[400px] md:h-[590px] md:bg-green-300 lg:bg-gray-200 lg:rounded-tr-[5px] lg:rounded-br-[5px]  md:rounded-tr-[5px] md:rounded-br-[5px] '>
-          <div className='flex md:mt-12 md:ml-28'>
-            <img src='/logo.png' className='w-[50px] h-[50px]'></img>
-            <h3 className='mt-3'>
-              <b>TreasureCart</b>
-            </h3>
-          </div>
-          <p className='ml-8 text-xx'>
-            A place where you can shop any goods online <br /> without any
-            difficulties
+            <div className="md:flex mt-4">
+            <div className="flex gap-1">
+            <div className="md:flex md:mr-2">
+            <button className="mt-2 w-[13px] h-[13px] relative md:ml-2">
+            <img
+          src="/notchecked.svg"
+          className="w-full  absolute inset-0 md:mt-[-2px] mt-[-2px]"
+        />
+        <img
+          src="/checked.svg"
+          className="w-full absolute inset-0 hidden"
+        />
+         </button>
+         </div>
+          <p className="mt-1">
+        <b>Keep me logged in</b>
           </p>
-          <img src='/login.png' className='w[400px] h-[280px] mt-6'></img>
-          <button className='md:rounded-lg md:p-2 bg-blue-500 md:text-white md:w-[320px] md:ml-10'>
-            Get Started
-          </button>
-        </div>
+          </div>
+         <p className="md:mt-1 md:ml-24">
+          <b>Forgot password</b>
+           </p>
+          </div>
+          <button type="submit" value="submit" className="border border-none bg-[rgb(255,161,48)] outline-none p-2  w-[200px] text-white md:ml-24 rounded-lg hover:bg-black ml-6 ">
+                    Sign-in
+                  </button>
+
+          </form>
+         
+                  <div className="md:flex">
+              <p className="mr-2">Don't have an account?</p>
+              <div className='md:mt-4 text-black no-underline'>
+              <Link className='no-underline text-black' to={"/Register"}>Sign up</Link>
+              </div>
+            </div>
+                 
       </div>
+      
+      
+       </div>
+       
+      </div>
+      
     </div>
   )
 }

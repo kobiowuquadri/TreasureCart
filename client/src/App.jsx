@@ -10,9 +10,9 @@ function App() {
     <>
       <div>
         <Routes>
-          <Route index element={<Home />}></Route>
-          <Route path="/Login" element={<Login />}></Route>
+          <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
+          <Route index element={<Home />}></Route>
         </Routes>
       </div>
     </>

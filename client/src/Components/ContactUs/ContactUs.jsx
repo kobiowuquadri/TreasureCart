@@ -1,4 +1,5 @@
 import React from "react";
+// import { FaLocationPin, BsFillTelephoneFill, FaEnvelope } from "react-icons/fa";
 
 function ContactUs() {
   return (
@@ -14,70 +15,80 @@ function ContactUs() {
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
-      <div className="ContactDetails">
+      <div>
         <div>
-          {" "}
-          <h1>Get In Touch With Us</h1>
-          <hr />
-          <p>
+          <h1 className=" flex justify-center items centre">
+            Get In Touch With Us
+          </h1>
+          <hr className="w-16 bg-blue-600" />
+          <p className=" flex justify-center items centre">
             We are here to help. Want to learn more about our services? Please
             get in touch, we want to hear from you!
           </p>
+        </div>
+        <div className="flex flex-row">
           <div>
-            <div>
-              <form>
-                <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                  <div className="sm:col-span-5">
-                    <div className="mt-2 w-10">
-                      <input
-                        type="text"
-                        name="first-name"
-                        id="first-name"
-                        placeholder="Name"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="sm:col-span-5">
-                    <div className="mt-2">
-                      <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        placeholder="Email"
-                      />
-                    </div>
-                  </div>
-                  <div className="sm:col-span-5">
-                    <div className="mt-2">
-                      <input
-                        type="number"
-                        name="phone-number"
-                        id="phone-number"
-                        placeholder="Phone"
-                      />
-                    </div>
-                  </div>
-                  <div className="sm:col-span-5">
-                    <div className="mt-2">
-                      <input
-                        type="text"
-                        name="message"
-                        id="message"
-                        placeholder="Message"
-                      />
-                    </div>
-                  </div>
+            <form>
+              <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                <div className="sm:col-span-5">
+                  <input
+                    type="text"
+                    name="first-name"
+                    id="first-name"
+                    placeholder="Name"
+                  />
                 </div>
-              </form>
-            </div>
-            <div>
-              <h2>headquater</h2>
-            </div>
+
+                <div className="sm:col-span-5">
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Email"
+                  />
+                </div>
+                <div className="sm:col-span-5">
+                  <input
+                    type="number"
+                    name="phone-number"
+                    id="phone-number"
+                    placeholder="Phone"
+                  />
+                </div>
+                <div className="sm:col-span-7">
+                  <input
+                    className="w-100 h-20"
+                    type="text"
+                    name="message"
+                    id="message"
+                    placeholder="Message"
+                  />
+                </div>
+                <button className=" w-45 h-15 bg-orange-400 text-white border-none">
+                  SEND MESSAGE
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div>
+            <h2>HEADQUATER</h2>
           </div>
         </div>
       </div>
-      <div className="GetApp"> </div>
+      <div className="flex flex-row bg-orange-150 h-40">
+        {" "}
+        <div>
+          {" "}
+          <h2>Do You Like Treasure Cart? Download it Now</h2>
+          <p>Available on playstore and AppStore</p>
+        </div>
+        <div>
+          <button className=" w-45 h-17 bg-orange-400 text-white border-none">
+            DOWNLOAD NOW! - FOREVER FREE
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

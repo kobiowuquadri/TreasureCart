@@ -2,10 +2,10 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import arrow1 from './NAimage/Arrow.png'
-import arrow2 from './NAimage/Arrow (1).png'
-import plus from './NAimage/+.png'
-import NAdata from './NAdata'
+import arrow1 from '../NewArrival/NAimage/Arrow.png'
+import arrow2 from '../NewArrival/NAimage/Arrow (1).png'
+import plus from '../NewArrival/NAimage/+.png'
+import Bestsellerdata from './Besllersdata'
 
 
 function NextArrow(props) {
@@ -27,7 +27,7 @@ function PrevArrow(props) {
     onClick={onClick}><img src={arrow1} alt="" /></div>
   );
 }
-function NewArrival() {
+function BestSeller() {
   const settings = {
     dots: true,
     infinite: true,
@@ -43,16 +43,16 @@ function NewArrival() {
   return (
     <div>
     
-      <div className='bg-primary2  min-h-screen bg-my-image bg-no-repeat' >
+      <div className='bg-white  -mb-20 min-h-screen bg-my-image bg-no-repeat' >
   
 
     <Slider {...settings}>
-    {NAdata.map((data, index) => (
+    {Bestsellerdata.map((data, index) => (
       <div key={index}>
         <div className='flex justify-center'>
           <div className='p-40 pr-12 pl-5 pb-0 mb-0'>
             <div className="flex">
-              <p className='text-5xl font-body font-bold text-secondary mb-4'>New Arrivals</p> <div className='pt-16 pl-10'><img src={plus} alt="" /></div>
+              <p className='text-5xl font-body font-bold text-secondary mb-4'>Best Sellers</p> <div className='pt-16 pl-10'><img src={plus} alt="" /></div>
             </div>
             <p className='text-4xl font-body text-secondary mt-2 mb-0'>{data.Name}</p>
             <p className='text-2xl font-body text-secondary mt-2 mb-0'>{data.stock}</p>
@@ -76,4 +76,4 @@ function NewArrival() {
   )
 }
 
-export default NewArrival
+export default BestSeller

@@ -1,11 +1,9 @@
 import React from 'react'
-import NewArrival from '../NewArrival/NewArrival'
 import Pdata from './Pdata'
 
 const Products = () => {
   return (
     <div>
-      <NewArrival />
       <div>
         <div className='grid p-10 grid-cols-3'>
           {Pdata.map((data, index) => (
@@ -32,7 +30,7 @@ const Products = () => {
         </div>
       </div>
       <div className='flex justify-center'>
-      <button className='text-black font-bold bg-primary border-0 rounded-full px-16 py-5 text-1xl hover:opacity-75 cursor-pointer '>VIEW ALL</button>
+      <button className='text-black mb-1 font-bold bg-primary border-0 rounded-full px-16 py-5 text-1xl hover:opacity-75 cursor-pointer '>VIEW ALL</button>
       </div>
     </div>
   )

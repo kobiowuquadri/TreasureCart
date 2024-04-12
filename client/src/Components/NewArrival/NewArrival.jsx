@@ -43,7 +43,7 @@ function NewArrival() {
   return (
     <div>
     
-      <div className='bg-primary  min-h-screen bg-my-image bg-no-repeat' >
+      <div className='bg-primary2  min-h-screen bg-my-image bg-no-repeat' >
   
 
     <Slider {...settings}>

@@ -36,7 +36,7 @@ function HeroSection () {
           }}
         >
           <img src={logo} alt='' id='logo' className='w-10 h-10' />
-          <h4 className='text-white font-light'>PRODUCTS</h4>
+          <Link className='no-underline' to={"/productpage"}><h4 className='text-white font-light'>PRODUCTS</h4></Link>
           <h4 className='text-white font-light'>ABOUT</h4>
           <h4 className='text-white font-light'>CONTACT US</h4>
 

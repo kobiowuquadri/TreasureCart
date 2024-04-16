@@ -11,10 +11,7 @@ import Footer from '../Footer/Footer'
 import { VscSettings } from 'react-icons/vsc';
 
 const ProductPage = () => {
-  // const sideRef = useRef();
-  // const showSidebar = () => {
-  //   sideRef.current.classList.toggle('hidden');
-  // }
+  
 
   const [showDiv1, setShowDiv1] = useState(true);
   const [showDiv2, setShowDiv2] = useState(false);
@@ -72,7 +69,7 @@ const ProductPage = () => {
           <h4 className='text-white font-light'>CONTACT US</h4>
 
           <div className="menuicon ">
-          <FaSearch className='text-white mr-8'  />
+          <Link className='no-underline' to={"/search"}><FaSearch className='text-white mr-8'  /></Link>
           <FiUser className='text-white text-xl mr-8' />
           <IoCartOutline  className='text-white text-xl'/>
           </div>

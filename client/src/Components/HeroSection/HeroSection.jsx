@@ -41,7 +41,7 @@ function HeroSection () {
           <h4 className='text-white font-light'>CONTACT US</h4>
 
           <div className="menuicon ">
-          <FaSearch className='text-white mr-8'  />
+          <Link className='no-underline' to={"/search"}><FaSearch className='text-white mr-8'  /></Link>
           <FiUser className='text-white text-xl mr-8' />
           <IoCartOutline  className='text-white text-xl'/>
           </div>

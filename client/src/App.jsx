@@ -7,6 +7,7 @@ import "./App.css";
 import ContactUs from "./Components/ContactUs/ContactUs";
 import ProductPage from "./Components/Product Page/ProductPage";
 import ProductDetails from "./Components/ProductDetails/ProductDetails.jsx";
+import Search from "./Components/Search/Search.jsx";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/contact-us" element={<ContactUs />}></Route>       
           <Route path="/productpage" element={<ProductPage />}></Route>
           <Route path="/productdetails" element={<ProductDetails />}></Route>
+          <Route path="/search" element={<Search />}></Route>
         </Routes>
       </div>
     </>

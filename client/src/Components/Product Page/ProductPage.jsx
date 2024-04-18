@@ -1,15 +1,30 @@
-import {React, useState} from 'react'
+import {React, useState, useRef} from 'react'
 import logo from './Ppimage/LOGO1.png'
 import { Link } from 'react-router-dom'
 import { FaSearch } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { FiUser } from "react-icons/fi";
-import { FaShoppingCart } from 'react-icons/fa'
+import { FaShoppingCart, FaTimes } from 'react-icons/fa'
 import rating from './Ppimage/Rating.png'
 import Ppdata from './Ppdata';
 import Footer from '../Footer/Footer'
+import { VscSettings } from 'react-icons/vsc';
 
 const ProductPage = () => {
+  // const sideRef = useRef();
+  // const showSidebar = () => {
+  //   sideRef.current.classList.toggle('hidden');
+  // }
+
+  const [showDiv1, setShowDiv1] = useState(true);
+  const [showDiv2, setShowDiv2] = useState(false);
+
+  const toggleDivs = () => {
+      setShowDiv1(!showDiv1);
+      setShowDiv2(!showDiv2);
+  };
+
+
   const [ item, setItems ] = useState(Ppdata)
   const [value, setValue ] = useState('All')
   const [ length, setLength ] = useState(item.length)
@@ -65,10 +80,14 @@ const ProductPage = () => {
         </div>
 
 
-        <div className='flex '>
+        <div className='flex justify-center  '>
 
-          <div>
-                <div className='bg-white border-border border-solid border-2 h-auto w-60 m-4 mt-32 p-5 rounded'>
+          <div className={showDiv2 ? "max-[900px]:block" : "max-[900px]:hidden"}>
+                <div className='bg-white border-border border-solid border-2 h-auto w-60 m-4 mt-32 p-5 rounded max-[900px]:w-auto max-[900px]:h-full max-[900px]:m-0 max-[900px]:translate-x-full '>
+                    <button className='flex justify-end hover:cursor-pointer min-[901px]:hidden  bg-transparent border-none'
+                    onClick={toggleDivs}
+                    
+                    ><FaTimes size={25} className='text-black'/></button>
                     <p className='font-body text-white bg-primary p-3 rounded'>Categories</p>
                     <button className='border-border border-solid border-2 rounded bg-white text-ptext container p-3 text-left font-body mb-3 cursor-pointer hover:bg-primary hover:text-white focus:bg-primary focus:text-white'
                       onClick={() => {
@@ -102,21 +121,25 @@ const ProductPage = () => {
           </div>
 
 
-          <div>
-                <div className='mt-20 mb-10'>
+          <div className={showDiv1 ? "max-[900px]:block" : "max-[900px]:hidden"}>
+                <div className='mt-20 mb-10 max-[900px]:mt-5   '>
+                  <button className='ml-5 hover:cursor-pointer min-[901px]:hidden bg-transparent border-none '
+                    onClick={toggleDivs}
+
+                  ><VscSettings size={25} className='text-black' /></button>
                 <div className='flex text-ptext font-body justify-between m-3 -mb-3 '><p className='-ml-48'> <input type="text" value={length} className='bg-transparent border-none text-primary font-bold font-body text-right pr-1 outline-none text-base' />Products</p> <p>Sort By: <input type="text" value={value} className='bg-transparent border-none text-primary font-bold font-body text-base -mr-36 pr-0 outline-none'/></p></div>
-                <div className='grid grid-cols-4 '>
+                <div className='grid grid-cols-4 max-[1200px]:grid-cols-3 max-[1000px]:grid-cols-2'>
                   {item.map((val) => (
                         <div className='m-2' key={val.id}>
                   
-                              <div className='border-border border-solid border-2 flex justify-center '>
+                              <div className='border-border border-solid border-2 flex justify-center  '>
                                   <img src={val.image} alt={val.Name} />
                               </div>
                               <div className='border-border border-solid border-2 border-t-0 p-2 '>
                                   <p className='text-xl font-body font-medium text-price mt-0 mb-0 mr-16 '>${val.price}</p>
                                   <p className='text-base font-body text-ptext font-medium mb-0 pb-0 mt-0'>{val.Name}</p>
                                   <img src={rating} alt="" height={20} className='mb-3' />
-                                  <div className='flex'><button className='text-white font-body bg-black border-0 rounded-full px-3 mr-1 text-xs hover:opacity-75 cursor-pointer '><Link className='no-underline text-white' to={"/productdetails"}>DETAILS</Link></button> <button className='text-white bg-primary border-0 rounded-full p-2 px-5 text-xs hover:opacity-75 cursor-pointer font-body '>ADD TO CART <FaShoppingCart/>  </button></div>
+                                  <div className='flex'><Link className='no-underline text-white' to={"/productdetails"}><button className='text-white font-body bg-black border-0 rounded-full px-3 py-2 mr-1 text-xs hover:opacity-75 cursor-pointer max-[900px]:px-1 max-[900px]:py-1 '>DETAILS</button></Link> <Link className='no-underline text-white' to={""}><button className='text-white bg-primary border-0 rounded-full p-2 px-5 text-xs hover:opacity-75 cursor-pointer font-body max-[900px]:px-1 max-[900px]:py-1 '>ADD TO CART < FaShoppingCart className='max-[900px]:hidden'/>  </button></Link></div>
                               </div>
                               
                         </div>

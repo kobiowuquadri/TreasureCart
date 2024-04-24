@@ -1,0 +1,28 @@
+body{
+    margin: 0;
+  }
+/* .product-border {
+    border-top: 1px solid black;
+}
+.card-border {
+    border-top: 1px solid black;
+  width: 100%;
+} */
+.gettextborder{
+    border-top: 1px solid #DDDDDD;
+    /* border-top-style: inset; */
+
+}
+.maintotalborder{
+    border-top: 1px solid #DDDDDD;
+
+
+}
+.primaryborder {
+    border-top: 1px solid black;
+    width: 60%;
+
+}
+.underline-none {
+    text-decoration: none;
+}

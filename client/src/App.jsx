@@ -8,12 +8,14 @@ import ContactUs from "./Components/ContactUs/ContactUs";
 import ProductPage from "./Components/Product Page/ProductPage";
 import ProductDetails from "./Components/ProductDetails/ProductDetails.jsx";
 import Search from "./Components/Search/Search.jsx";
-
+import Checkout from "./Components/Checkout/checkout.jsx";
+import {ProductImageProvider} from './Components/productContext/productContext.jsx'
 
 function App() {
   return (
     <>
       <div>
+      <ProductImageProvider>
         <Routes>
          <Route index element={<Home />}></Route>
           <Route path="/login" element={<Login />}></Route>
@@ -22,7 +24,9 @@ function App() {
           <Route path="/productpage" element={<ProductPage />}></Route>
           <Route path="/productdetails" element={<ProductDetails />}></Route>
           <Route path="/search" element={<Search />}></Route>
+          <Route path="/checkout" element={<Checkout />}></Route>
         </Routes>
+        </ProductImageProvider>
       </div>
     </>
   );

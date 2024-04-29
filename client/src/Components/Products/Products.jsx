@@ -11,6 +11,7 @@ const Products = () => {
   const handleAddToCart = (data) => {
     addToCart(data.id);
     setSelectedProducts(prevSelected => [...prevSelected, data]);
+    console.log('Selected Product:', data); 
 
   }
   return (

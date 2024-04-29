@@ -43,7 +43,7 @@ function HeroSection ({ selectedProducts = [] }) {
               SHOP ONLINE.
             </h1>
             <p className='w-96 mb-8'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+              Lorem ipsum doloryyy sit amet consectetur adipisicing elit. Veniam
               fugiat laboriosam ab dolorem rerum unde. Quo reprehenderit vitae
               consequatur expedita ullam, sint, error minus quae unde alias
               amet. Veritatis impedit omnis nostrum

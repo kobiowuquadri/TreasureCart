@@ -35,6 +35,7 @@ const AdminLogin = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
           
+          
         }}
       >
         <div className="ml-10 md:flex justify-center items-center md:pt-24 pt-10">

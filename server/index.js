@@ -11,7 +11,7 @@ const cors = require('cors')
 const port = process.env.PORT
 
 app.use(cors({
-   origin: 'http://localhost:5173',
+   origin: ['http://localhost:5173', 'https://backend-treasure-cart.onrender.com'],
    credentials: true
 }))
 
@@ -32,7 +32,6 @@ app.get('/', (req, res) => {
    res.send('Backend Working Successfully.')
 })
    
-
 
 app.listen(port, () => {
    console.log(`Server running on port ${port}`)

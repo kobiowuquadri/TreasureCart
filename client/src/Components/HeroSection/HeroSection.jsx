@@ -34,7 +34,7 @@ function HeroSection ({ selectedProducts = [] }) {
       <div className='contentcontainer mt-9'  style={{ padding: 30 }}>
 
         <div className='bothdiv relative '>
-          <div className='textsection mt-[140px] ml-40 absolute -top-10 ' id='text'>
+          <div className='textsection mt-[141px] ml-40 absolute -top-10 ' id='text'>
             <h1 class='text-6xl -mb-8 font-bold text-white '>SHOP SAFE.</h1>
             <h1
               className='text-6xl font-bold text-white mb-8 py-1'

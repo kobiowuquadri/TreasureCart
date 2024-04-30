@@ -6,6 +6,7 @@ const userRouter = require('./Routes/userRoutes')
 const adminRouter = require('./Routes/adminRoutes')
 const cookieParser = require ('cookie-parser')
 const cors = require('cors')
+const morgan = require('morgan')
 
 
 const port = process.env.PORT
@@ -16,6 +17,7 @@ app.use(cors({
 }))
 
 // Middlewares
+app.use(morgan('tiny'))
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use(userRouter)

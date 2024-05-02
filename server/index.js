@@ -7,7 +7,7 @@ const adminRouter = require('./Routes/adminRoutes')
 const cookieParser = require ('cookie-parser')
 const cors = require('cors')
 const morgan = require('morgan')
-const hbs = require('nodemailer-express-handlebars')
+
 
 
 const port = process.env.PORT
@@ -25,18 +25,6 @@ app.use(userRouter)
 app.use(adminRouter)
 app.use(cookieParser())
 
-// configure handle
-
-const hbsOptions = {
-  viewengine: {
-    defaultLayout: false
-  },
-  viewPath: 'templates'
-}
-
-
-
-// CORS CONFIG
 
 
 // HOME

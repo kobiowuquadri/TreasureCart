@@ -52,12 +52,11 @@ const registerUser = async (req, res) => {
 
     const subject = 'Welcome to Treasure Cart'
     const text = 'Thank you for registering with Treasure Cart!'
-    const html = `
-
-    `
+    const template = 'welcomeMessage'
+    
 
     const savedUser = await newUser.save()
-    await sendEmail(email, subject, text, html)
+    await sendEmail(email, subject, text, template)
     res
       .status(201)
       .json({ success: true, message: 'User Created Successfully', savedUser })

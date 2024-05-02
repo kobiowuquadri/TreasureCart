@@ -1,4 +1,6 @@
 const nodemailer = require('nodemailer')
+const hbs = require('nodemailer-express-handlebars')
+const path = require('path')
 
 require('dotenv').config()
 
@@ -14,8 +16,18 @@ const createTransporter = () => {
     }
   })
 }
+
 const sendEmail = async (to, subject, text, html) => {
   const transporter = createTransporter()
+
+  const hbsOptions = {
+    viewEngine: { 
+      defaultLayout: false
+    },
+    viewPath: 'views'
+  }
+
+  transporter.use('compile', hbs(hbsOptions))
 
   const mailOptions = {
     from: {
@@ -25,7 +37,10 @@ const sendEmail = async (to, subject, text, html) => {
     to: Array.isArray(to) ? to.join(', ') : to,
     subject: subject,
     text: text,
-    html: html
+    template: "welcomeMessage",
+    context : {
+
+    }
   }
 
   try {

@@ -5,7 +5,7 @@ import { FiUser } from "react-icons/fi";
 import logo from './LOGO1.png';
 import { Link } from 'react-router-dom'
 import ProductImageContext from '../productContext/productContext';
-
+import './navbar.css'
 
 
 
@@ -18,7 +18,7 @@ export default function Navbar (){
     return(
 
          <div
-          className='navbar bg-[#945F21] font-body'
+          className='navbar bg-[#945F21] navbar-section font-body'
           style={{
             display: 'flex',
             alignItems: 'center',

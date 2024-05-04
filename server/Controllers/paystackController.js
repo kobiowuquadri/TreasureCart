@@ -5,9 +5,9 @@ const axios = require("axios")
 const payMoney = async (req, res) => {
   try {
     const {email, amount } = req.body
-    const payment = await axios.post("https://api.paystack.co/transaction/initialize", req.body, {
+    const payment = await axios.post(process.env.PAYSTACK_BASE_URL, req.body, {
       headers: {
-          Authorization: "Bearer sk_test_7b7d743a6d038c5748201e273b651194abc5a40d",
+          Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}`,
           "Content-Type": "application/json"
       }
     })

@@ -26,7 +26,7 @@ adminRouter.put(
 )
 
 adminRouter.get('/allSubAdim', verifyAdmin, allSubadmin)
-adminRouter.get('/allUser', verifyAdmin, allUser)
+adminRouter.get('/allUser', allUser)
 
 adminRouter.delete(
   '/admin/delete-user/:userId',

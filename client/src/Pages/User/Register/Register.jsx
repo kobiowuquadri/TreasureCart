@@ -43,7 +43,7 @@ function Register() {
       <div className=" flex justify-center items-center md:pt-24 pt-8">
         
 
-        <div className="bg-white p-6 rounded  w-[80%] md:w-[35%] md:h-[440px] md:ml-[40%] md:mt-20 rounded-3xl">
+        <div className="bg-white p-6 rounded  w-[80%] md:w-[35%] md:h-[440px] md:ml-[40%] md:mt-8 rounded-3xl">
           <h2 className="flex justify-center items-center text-[rgb(254,177,62)]">Create an account</h2>
 
           <form onSubmit={handleSubmit}>
@@ -73,12 +73,7 @@ function Register() {
             </div>
             <div>
               <div className="flex lg:ml-24 md:ml-24 ml-7 ">
-          
-              <button className="w-[13px] h-[10px] relative ml-4 mt-5 p-1 ml-24">
-              <img src="./checked.svg" className="w-[10px] h-[10px] absolute inset-0 hidden"/>
-              <img src="./notchecked.svg"  className="w-[10px] h-[10px] absolute inset-0 " />
-  
-              </button>
+              <input type="checkbox"></input>
                 <p className="w-72 r-32 ml-2 text-sm">
                   <b >Accept Terms of Use & Privacy policy</b>
                 </p>

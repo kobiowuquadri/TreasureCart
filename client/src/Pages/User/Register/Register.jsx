@@ -1,12 +1,11 @@
-import { React, useState, useEffect } from "react";
+import React, {  useState, useEffect } from "react";
 import backgroundImage from "./cart1.png";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import SignInWithGoogle from '../../../testlogin/testlogin'
 
-import { GoogleLogin } from "react-google-login";
 
-const clientId = "879986446151-dm25g8gcheblclds5lkemlp92ljgef54.apps.googleusercontent.com"; // Replace with your actual Google Client ID
 
 function Register() {
   const [surname, setsurname] = useState("");
@@ -16,16 +15,8 @@ function Register() {
   const [password, setPassword] = useState("");
   const [phoneNumber, setphoneNumber] = useState("");
 
-  const handleGoogleSignInSuccess = (response) => {
-    // Handle successful Google Sign-In response
-    console.log("Google Sign-In success:", response);
-    // You can implement further logic here, such as sending the token to your backend
-  };
 
-  const handleGoogleSignInFailure = (error) => {
-    // Handle Google Sign-In failure
-    console.error("Google Sign-In error:", error);
-  };
+
 
   const navigate = useNavigate();
 
@@ -157,40 +148,29 @@ function Register() {
             </div>
             <button
               type="submit"
-              className="border border-2 border-gray-200 bg-[rgb(255,161,48)] outline-none p-2  w-[200px] text-white md:ml-40 rounded-lg hover:bg-black ml-12 "
+              className="border-0 bg-[rgb(255,161,48)] outline-none p-3  w-[200px] text-white md:ml-40 rounded-lg hover:bg-black ml-12 "
             >
               Create Account
             </button>
 
             <div className="md:flex mt-4 block">
               <div className="md:mt-4 md:mr-12 md:ml-4 ml-12">
-                
-                  {/* // className="w-[200px] h-[35px] p-2 flex items-center mb-4" */}
-                  {/* onClick={handleCustomGoogleSignInClick} */}
-                
-                  {/* <img src="./g-solid.svg" className="w-[10px] mr-2" alt="Google Icon" />
-              <p className="text-[rgb(254,177,62)]">Sign up with Google</p> */}
-                  {/* Hidden GoogleLogin component */}
-                  <GoogleLogin
-                    id="google-login-button"
-                    clientId={clientId} // Use the clientId constant here
-                    onSuccess={handleGoogleSignInSuccess}
-                    onFailure={handleGoogleSignInFailure}
-                    cookiePolicy={"single_host_origin"}
-                    style={{ display: "none" }} // Hide the GoogleLogin button
-                  />
-                
+                < SignInWithGoogle />
+              
+               
               </div>
 
               <div className="mt-4 md:ml-8 ml-12">
-                <button className="w-[200px] h-[35px] p-2 flex items-center ">
+                <button className="w-[200px] h-[35px] p-2 bg-white rounded border  border-black flex items-center ">
                   <img src="./f.svg" className="w-[10px] mr-2" />
                   <p className="text-[rgb(254,177,62)]">
                     Sign up with facebook
                   </p>
                 </button>
               </div>
+              
             </div>
+            
             <div className="md:flex ml-4">
               <p>Already have an account?</p>
               <Link to={"/login"} className="no-underline mt-4 ml-2 text-black">

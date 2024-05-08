@@ -11,8 +11,13 @@ import Search from "./Components/Search/Search.jsx";
 import Checkout from "./Components/Checkout/checkout.jsx";
 import {ProductImageProvider} from './Components/productContext/productContext.jsx'
 import AdminLogin from "./Components/Adminlogin/Adminlogin.jsx"
+import SignInWithGoogle from './testlogin/testlogin.jsx'
+import firebaseApp from "./testlogin/testlogin.jsx";
 
 function App() {
+
+  firebaseApp; // This line initializes Firebase
+
   return (
     <>
       <div>
@@ -27,6 +32,8 @@ function App() {
           <Route path="/search" element={<Search />}></Route>
           <Route path="/checkout" element={<Checkout />}></Route>
           <Route path="/admin" element={<AdminLogin />}></Route>
+          <Route path="/test" element={<SignInWithGoogle />}></Route>
+
 
         </Routes>
         </ProductImageProvider>

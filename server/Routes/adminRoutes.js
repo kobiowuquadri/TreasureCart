@@ -1,6 +1,8 @@
 const express = require('express')
 const adminRouter = express.Router()
 
+const upload = require('../Middlewares/uploadImage')
+
 const {
   adminLogin,
   adminRegister,
@@ -8,7 +10,8 @@ const {
   adminUpdateUserProfile,
   allUser,
   allSubadmin,
-  adminDeleteUserProfile
+  adminDeleteUserProfile,
+  uploadProduct
 } = require('../Controllers/adminController')
 
 const verifyAdmin = require('../Middlewares/verifyAdmin')
@@ -23,12 +26,15 @@ adminRouter.put(
 )
 
 adminRouter.get('/allSubAdim', verifyAdmin, allSubadmin)
-adminRouter.get('/allUser', verifyAdmin, allUser)
+adminRouter.get('/allUser', allUser)
 
 adminRouter.delete(
   '/admin/delete-user/:userId',
   verifyAdmin,
   adminDeleteUserProfile
 )
+
+
+adminRouter.post('/upload-product', verifyAdmin, upload.single('productImage'), uploadProduct)
 
 module.exports = adminRouter

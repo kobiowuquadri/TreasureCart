@@ -9,8 +9,30 @@ const cors = require('cors')
 const morgan = require('morgan')
 
 
-
 const port = process.env.PORT
+
+
+
+app.listen(port, () => {
+   console.log(`Server running on port ${port}`)
+})
+
+
+const allowedOrigins = [
+   'http://localhost:5173', // Add your local development environment
+   'https://treasure-cart.vercel.app' // Add your production frontend URL
+ ];
+ 
+
+app.use(
+   cors({
+     origin: allowedOrigins,
+     credentials: true,
+   })
+ );
+ app.use('/api/users', userRouter); // Example endpoint
+
+
 
 app.use(cors({
    origin: ['http://localhost:5173', 'https://backend-treasure-cart.onrender.com'],
@@ -26,6 +48,11 @@ app.use(adminRouter)
 app.use(cookieParser())
 
 
+
+
+app.get('/', (req, res) => {
+   res.send('Backend Working Successfully.')
+})
 
 // HOME
 app.get('/', (req, res) => {

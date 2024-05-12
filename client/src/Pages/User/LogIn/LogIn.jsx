@@ -1,5 +1,5 @@
 import axios from "axios";
-import { React, useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import backgroundImage from "./cart1.png";

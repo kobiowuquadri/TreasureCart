@@ -31,7 +31,7 @@ function App() {
           <Route path="/register" element={<Register />}></Route>
           <Route index element={<Home />}></Route>
           <Route path="/password" element={<Forgot />}></Route>
-          <Route path="/resetpassword/:userId/:token" element={<ResetPassword />} 
+          <Route path="/resetpassword/:userId/:token" element={<ResetPassword />} ></Route>
           <Route path="/contact-us" element={<ContactUs />}></Route>       
           <Route path="/productpage" element={<ProductPage />}></Route>
           <Route path="/productdetails" element={<ProductDetails />}></Route>

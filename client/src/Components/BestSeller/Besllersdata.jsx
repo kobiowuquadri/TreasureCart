@@ -1,6 +1,9 @@
 import headphone from './Images/headphone.png'
 import shoe from './Images/shoe.png'
 import jacket from './Images/jacket.png'
+import best1 from './Images/best1.png'
+import best2 from './Images/best2.png'
+import best3 from './Images/best3.png'
 
 const Bestsellerdata = [
     {
@@ -26,4 +29,17 @@ const Bestsellerdata = [
     },
 ];
 
-export default Bestsellerdata;
+const responsive = [
+    {
+        image:[best1]
+    },
+    {
+        image:[best2]
+    },
+    {
+        image:[best3]
+    }
+
+]
+
+export  {Bestsellerdata, responsive};

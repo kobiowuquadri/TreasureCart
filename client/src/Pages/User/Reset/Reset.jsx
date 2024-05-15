@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
-import backgroundImage from "./cart1.png";
 import { Link } from "react-router-dom";
+import backgroundImage from "../Register/cart1.png";
+import Navbar from "../../../Components/Navbar/navbar";
+
 
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState('');
@@ -36,16 +38,21 @@ const ResetPassword = () => {
   return (
     <div className='w-screen h-screen'>
       <div style={{
-      minHeight: "120vh",
+      minHeight: "100vh",
     width: "100%",
     backgroundImage: `url(${backgroundImage})`,
     backgroundSize: "cover",
     backgroundPosition: "center"
   
     }}>
-       <div className="ml-10 md:flex justify-center items-center md:pt-24 md:pt-10 pt-20 ">
 
-      <div className="bg-white p-6 rounded md:h-[300px] w-[250px] md:w-[400px] md:ml-[40%] md:mt-32 rounded-3xl">
+      <div className='flex'>
+        <Navbar/>
+      </div>
+
+       {/* <div className="ml-10 md:flex justify-center items-center md:pt-24 md:pt-10 pt-20 ">
+
+      <div className="bg-white p-6 rounded md:h-[300px] w-[250px] md:w-[400px] md:ml-[40%] md:mt-32 rounded-3xl ">
           
 
           <form onSubmit={handleResetPassword}>
@@ -88,8 +95,63 @@ const ResetPassword = () => {
       </div>
       
       
-       </div>
+       </div> */}
        
+       
+
+
+       
+       <div className="flex justify-end align-end  max-[900px]:justify-center max-[900px]:align-center max-[900px]:mt-12">
+      <div className="bg-white font-body w-1/5  px-32 flex justify-center m-12 mb-0 max-[900px]:mb-12 rounded-3xl p-10 max-[900px]:w-screen max-[900px]:px-12">
+        <form onSubmit={handleResetPassword}>
+          <div>
+            <p className="text-[rgb(254,177,62)] mb-4 font-bold text-2xl">Reset Password</p>
+    
+          </div>
+
+          <div>
+          <input
+                type="password"
+                name="password"
+                placeholder="Enter new password"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                className=" h-4 mb-8 text-black p-2 w-[400px] max-[900px]:w-full "
+              ></input>
+                
+          </div>
+
+          <div>
+          <input
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm new password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                className=" h-4 mb-8 text-black p-2 w-[400px] max-[900px]:w-full"
+              ></input>
+          </div>
+
+
+          <div>
+          <button
+              type="submit"
+              className="border-0 bg-[rgb(255,161,48)] outline-none mb-8 w-full font-body text-white  rounded-lg hover:bg-black p-2 px-8 text-base cursor-pointer  "
+            >
+             Submit
+            </button>
+          </div>
+
+          <div>
+              <p className="text-sm font-medium mb-0">Don't have an account?</p>
+              <p className=" hover:underline mt-0 cursor-pointer"><Link to={"/Register"} className="text-[rgb(254,177,62)]  ">
+                Sign-up here
+              </Link></p>
+          </div>
+          
+        </form>
+      </div>
+    </div>
       </div>
       
     </div>

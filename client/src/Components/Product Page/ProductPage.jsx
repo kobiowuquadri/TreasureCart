@@ -58,7 +58,10 @@ const ProductPage = () => {
   setTimeout(proLength, 100);
   return (
     <div>
-      <Navbar />
+
+      <div className="flex ">
+        <Navbar />
+      </div>
 
       {/* <div
           className='navbar bg-[#945F21] font-body'
@@ -85,7 +88,7 @@ const ProductPage = () => {
 
         </div> */}
 
-      <div className="flex justify-center  ">
+      <div className="flex justify-center  max-[900px]:mt-14 ">
         <div className={showDiv2 ? "max-[900px]:block" : "max-[900px]:hidden"}>
           <div className="bg-white border-border border-solid border-2 h-auto w-60 m-4 mt-32 p-5 rounded max-[900px]:w-auto max-[900px]:h-full max-[900px]:m-0 max-[900px]:translate-x-full ">
             <button
@@ -177,7 +180,7 @@ const ProductPage = () => {
               {item.map((data) => (
                 <div className="m-2" key={data.id}>
                   <div className="border-border border-solid border-2 flex justify-center  ">
-                    <img src={data.image} alt={data.Name} />
+                    <img src={data.image} alt={data.Name} className="max-[650px]:w-[150px] max-[650px]:h-[150px]" />
                   </div>
                   <div className="border-border border-solid border-2 border-t-0 p-2 ">
                     <p className="text-xl font-body font-medium text-price mt-0 mb-0 mr-16 ">

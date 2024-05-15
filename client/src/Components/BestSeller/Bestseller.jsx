@@ -5,15 +5,18 @@ import "slick-carousel/slick/slick-theme.css";
 import arrow1 from '../NewArrival/NAimage/Arrow.png'
 import arrow2 from '../NewArrival/NAimage/Arrow (1).png'
 import plus from '../NewArrival/NAimage/+.png'
-import Bestsellerdata from './Besllersdata'
+import {Bestsellerdata, responsive} from './Besllersdata'
+import ResBestSeller from "./ResBestSeller";
+
 
 
 function NextArrow(props) {
   const { style, onClick } = props;
   return (
     <div
-    className= "p-5 mr-20 px-5 py-2.5 pl-6 rounded-full hover:bg-zinc-600 hover:opacity-65 cursor-pointer" 
-    style={{ ...style, position: "absolute", right: "0", top: "50%" }}
+    className= "p-5 mr-20 px-5 py-2.5 pl-6 rounded-full hover:bg-zinc-600 hover:opacity-65 cursor-pointer " 
+    style={{ ...style, position: "absolute", right: "0", top: "50%",
+     }}
     onClick={onClick}><img src={arrow2} alt="" /></div>
   );
 }
@@ -22,7 +25,7 @@ function PrevArrow(props) {
   const { style, onClick } = props;
   return (
     <div 
-    className= "z-10 px-5 py-2.5 pr-6 ml-20 rounded-full hover:bg-zinc-600 hover:opacity-75 cursor-pointer"
+    className= "z-10 px-5 py-2.5 pr-6 ml-20 rounded-full hover:bg-zinc-600 hover:opacity-75 cursor-pointer "
     style={{ ...style, position: "absolute", top: "50%", }}
     onClick={onClick}><img src={arrow1} alt="" /></div>
   );
@@ -42,8 +45,12 @@ function BestSeller() {
   };
   return (
     <div>
+
+      
+
+   <ResBestSeller />
     
-      <div className='bg-white  -mb-20 min-h-screen bg-my-image bg-no-repeat' >
+      <div className='bg-white  -mb-20 min-h-screen bg-my-image bg-no-repeat max-[900px]:hidden' >
   
 
     <Slider {...settings}>

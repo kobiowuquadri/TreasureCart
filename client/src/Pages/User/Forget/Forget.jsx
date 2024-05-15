@@ -1,7 +1,8 @@
 import axios from "axios";
 import { React, useState, useEffect } from "react";
-import backgroundImage from "./cart1.png";
+import backgroundImage from "../Register/cart1.png";
 import { Link } from "react-router-dom";
+import Navbar from "../../../Components/Navbar/navbar";
 
 const Forgot = () => {
     const [email, setEmail] = useState("");
@@ -21,14 +22,20 @@ const Forgot = () => {
   return (
     <div className='w-screen h-screen'>
       <div style={{
-      minHeight: "120vh",
+      minHeight: "100vh",
     width: "100%",
     backgroundImage: `url(${backgroundImage})`,
     backgroundSize: "cover",
     backgroundPosition: "center"
   
     }}>
-       <div className="ml-10 md:flex justify-center items-center md:pt-24 pt-10 ml-12">
+
+      <div className="flex">
+        <Navbar/>
+      </div>
+
+
+       {/* <div className="ml-10 md:flex justify-center items-center md:pt-24 pt-10 ml-12">
 
       <div className="bg-white p-6 rounded mt-24 w-[230px] md:w-[370px] md:h-[340px] md:ml-[40%] md:mt-28 rounded-3xl">
 
@@ -62,7 +69,53 @@ const Forgot = () => {
       </div>
       
       
-       </div>
+       </div> */}
+
+
+
+
+
+
+       <div className="flex justify-end align-end mt-24  max-[900px]:justify-center max-[900px]:align-center max-[900px]:mt-12">
+      <div className="bg-white font-body w-1/5  px-32 flex justify-center m-12 mb-0 max-[900px]:mb-12 rounded-3xl p-10 max-[900px]:w-screen max-[900px]:px-12">
+        <form onSubmit={handleSubmit}>
+          <div>
+            <p className="text-[rgb(254,177,62)] mb-2 font-bold text-2xl">Forget Password</p>
+            <p className="text-sm font-medium text-slate-700 mt-0">Enter the email address associated with your account and we'll send you a link to rest your password.</p>
+          </div>
+
+          <div>
+          <input
+                type="email"  
+                name="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className=" h-4 mb-8 text-black p-2 w-[400px] max-[900px]:w-full "
+              ></input>
+                
+          </div>
+
+
+          <div>
+          <button
+              type="submit"
+              className="border-0 bg-[rgb(255,161,48)] outline-none mb-8 w-full font-body text-white  rounded-lg hover:bg-black p-2 px-8 text-base cursor-pointer  "
+            >
+             Continue
+            </button>
+          </div>
+
+          <div>
+              <p className="text-sm font-medium mb-0">Don't have an account?</p>
+              <p className=" hover:underline mt-0 cursor-pointer"><Link to={"/Register"} className="text-[rgb(254,177,62)]  ">
+                Sign-up here
+              </Link></p>
+          </div>
+          
+        </form>
+      </div>
+    </div>
        
       </div>
       

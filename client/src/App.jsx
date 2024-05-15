@@ -15,6 +15,7 @@ import {ProductImageProvider} from './Components/productContext/productContext.j
 import AdminLogin from "./Components/Adminlogin/Adminlogin.jsx"
 import SignInWithGoogle from './testlogin/testlogin.jsx'
 import firebaseApp from "./testlogin/testlogin.jsx";
+import About from "./Components/AboutPage/About.jsx";
 
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
           <Route path="/register" element={<Register />}></Route>
           <Route index element={<Home />}></Route>
           <Route path="/password" element={<Forgot />}></Route>
-          <Route path="/resetpassword/:userId/:token" element={<ResetPassword />} 
+          <Route path="/resetpassword/:userId/:token" element={<ResetPassword />}></Route>
           <Route path="/contact-us" element={<ContactUs />}></Route>       
           <Route path="/productpage" element={<ProductPage />}></Route>
           <Route path="/productdetails" element={<ProductDetails />}></Route>
@@ -39,6 +40,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />}></Route>
           <Route path="/admin" element={<AdminLogin />}></Route>
           <Route path="/test" element={<SignInWithGoogle />}></Route>
+          <Route path="/aboutpage" element={<About />}></Route>
         </Routes>
         </ProductImageProvider>
       </div>

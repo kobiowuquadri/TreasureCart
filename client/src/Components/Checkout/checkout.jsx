@@ -13,6 +13,7 @@ import Products from  '../Products/Products'
 import ProductImageContext from '../productContext/productContext';
 import Pdata from '../Products/Pdata';
 import { MdOutlineDelete } from "react-icons/md";
+import Navbar from '../Navbar/navbar';
 
 
 
@@ -60,41 +61,15 @@ export default function Checkout() {
   
   
     return (
-      <div className="contentcontainer" style={{ padding: 30 }}>
-        <div
-          className="navbar bg-[#945F21] -ml-10 -mr-10 -mt-8 mb-40"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            flexDirection: "row",
-            justifyContent: "space-evenly",
-            fontSize: 18,
-          }}
-        >
-          <Link to="/">
-            <img src={logo} alt="" id="logo" className="w-10 h-10" />
-          </Link>
-          <Link to='/productpage' className="underline-none">
-          <h4 className=" text-white font-body font-light">PRODUCTS</h4>
-          </Link>
-          <h4 className="text-white font-body font-light">ABOUT</h4>
-          <h4 className="text-white font-body font-light">CONTACT US</h4>
+      <div className="contentcontainer" >
+
+      <div className='flex'>
+        <Navbar/>
+      </div>
+        
   
-          <div className="menuicon ">
-            <FaSearch className="text-white mr-8" />
-            <FiUser className="text-white text-xl mr-8" />
-            <Link to="">
-            <IoCartOutline className='text-white text-xl' />
-            {cartItemCount > 0 && (
-                <span className='text-white text-xs bg-red-500 rounded-full px-1'>
-                  {cartItemCount}
-                </span>
-              )}
-          </Link>          </div>
-        </div>
-  
-        <div className="secondary ">
-          <div className="primary primaryborder ml-72 flex justify-center">
+        <div className="secondary mt-32 ">
+          <div className="primary primaryborder ml-72 flex justify-center max-[900px]:flex-col-reverse max-[900px]:ml-10">
             <div className="getcard">
               <div className="carddiv  card-border flex space-x-4">
                 <div className="visa mt-4 flex flex-col justify-center items-center hover:bg-blue-200 hover:cursor-pointer hover:border-black p-2 ">
@@ -185,7 +160,7 @@ export default function Checkout() {
               </form>
             </div>
             <div className="getproduct product-border ">
-              <div className="getproductconatiner ml-12 font-body text-[7px] h-full w-96 bg-[#fafafa] border-4">
+              <div className="getproductconatiner ml-12 font-body text-[7px] h-full w-96 bg-[#fafafa] border-4 max-[900px]:ml-0 max-[900px]:mb-8">
                 <div className="theproduct mb-[10rem] flex  ">
                   <ul>
                     {Object.entries(productImage).map(([itemId, quantity]) => {
@@ -239,7 +214,7 @@ export default function Checkout() {
                   </ul>
                 </div>
   
-                <div className="total gettextborder ml-4 p-2 space-x-56 flex " style={{ position: 'sticky', top: '20px', zIndex: 1 }} >
+                <div className="total gettextborder ml-4 p-2 space-x-56 flex max-[900px]:space-x-24 " style={{ position: 'sticky', top: '20px', zIndex: 1 }} >
                   <div className="gettext ">
                     <h1 className="text-sm font-thin">Subtotal</h1>
                     <h1 className="text-sm font-thin">Shipping</h1>
@@ -252,7 +227,7 @@ export default function Checkout() {
                   </div>
                 </div>
   
-                <div className="maintotal maintotalborder ml-4 p-2 space-x-64 flex">
+                <div className="maintotal maintotalborder ml-4 p-2 space-x-64 flex max-[900px]:space-x-32">
                   <h1 className="text-sm font-thin">Total</h1>
                   <h2 className="text-[13px] font-thin">${totalPrice.toFixed(2)}</h2>
                 </div>

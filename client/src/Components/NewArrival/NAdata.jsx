@@ -1,6 +1,9 @@
 import earpods from './NAimage/Bitmap (1).png'
 import shoe from './NAimage/AIR JORDAN 1.png'
 import headset from './NAimage/Bitmap (2).png'
+import new1 from './NAimage/new1.png'
+import new2 from './NAimage/new2.png'
+import new3 from './NAimage/new3.png'
 
 const NAdata = [
     {
@@ -25,5 +28,16 @@ const NAdata = [
         price: '$127.80',
     },
 ];
+const Responsive = [
+    {
+        image: [new1]
+    },
+    {
+        image: [new2]
+    },
+    {
+        image: [new3]
+    }
+]
 
-export default NAdata;
+export {NAdata, Responsive};

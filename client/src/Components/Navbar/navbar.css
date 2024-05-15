@@ -3,3 +3,14 @@
     z-index: 1000;
     width: 100%;
 }
+.navbar-section2{
+    position: fixed;
+    width: 100%;
+}
+.trans{
+    transform: translateY(-100vh);
+    transition: 1s;
+}
+.responsive_nav{
+    transform: none;
+}

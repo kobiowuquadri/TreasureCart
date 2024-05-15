@@ -9,6 +9,8 @@ export default {
     extend: {
       backgroundImage: {
         "my-image": "url(/src/Components/NewArrival/NAimage/Bitmap.png)",
+        "home": "url(/src/Components/HeroSection/backgroundddd.png)",
+        "responsive": "url(/src/Components/HeroSection/resp.png)"
       },
       fontFamily: {
         body: ['Montserrat', 'sans-serif']

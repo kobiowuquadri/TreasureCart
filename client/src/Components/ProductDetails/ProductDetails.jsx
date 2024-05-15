@@ -10,6 +10,7 @@ import { FaShoppingCart } from 'react-icons/fa'
 import shoe from './Image.png'
 import { FaBagShopping } from "react-icons/fa6";
 import Footer from '../Footer/Footer'
+import Navbar from '../Navbar/navbar';
 
 const ProductDetails = () => {
 const [ Quantity, setQuantity ] = useState(1)
@@ -24,30 +25,10 @@ const [ Quantity, setQuantity ] = useState(1)
   }
   return (
     <div >
-
-        <div
-          className='navbar bg-[#945F21] font-body'
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            flexDirection: 'row',
-            justifyContent: 'space-evenly',
-            fontSize: 18
-          }}
-        >
-          <img src={logo} alt='' id='logo' className='w-10 h-10' />
-          <Link className='no-underline' to={"/productpage"}><h4 className='text-white font-light'>PRODUCTS</h4></Link>
-          <h4 className='text-white font-light'>ABOUT</h4>
-          <h4 className='text-white font-light'>CONTACT US</h4>
-
-          <div className="menuicon ">
-          <Link className='no-underline' to={"/search"}><FaSearch className='text-white mr-8'  /></Link>
-          <FiUser className='text-white text-xl mr-8' />
-          <IoCartOutline  className='text-white text-xl'/>
-          </div>
-
-        </div>
-        <div className='border-primary border-solid h-auto mx-32 mt-20 border max-[900px]:mx-5'>
+      <div className='flex'>
+        <Navbar/>
+      </div>
+        <div className='border-primary border-solid h-auto mx-32 mt-32 border max-[900px]:mx-5'>
           <p className='font-body ml-20 mt-10 text-ptext max-[900px]:ml-5'>Product details</p>
           <div className=' font-body flex justify-between px-20 pt-10 pb-10 max-[1200px]:grid max-[900px]:px-5'>
               <div className='max-[1200px]:flex max-[1200px]:justify-center'>
@@ -106,7 +87,7 @@ const [ Quantity, setQuantity ] = useState(1)
                         <div className='m-2' key={val.id}>
                   
                               <div className='border-border border-solid border-2 flex justify-center '>
-                                  <img src={val.image} alt={val.Name}  />
+                                  <img src={val.image} alt={val.Name} className='max-[650px]:w-[150px] max-[650px]:h-[150px]'  />
                               </div>
                               <div className='border-border border-solid border-2 border-t-0 p-2 '>
                                   <p className='text-xl font-body font-medium text-price mt-0 mb-0 mr-16 '>${val.price}</p>

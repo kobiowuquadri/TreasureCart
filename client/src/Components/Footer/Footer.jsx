@@ -45,12 +45,12 @@ const items = [
 function Footer () {
   return (
     <div className='w-full 	  mt-24 bg-black text-white -mb-36  py-y px-2'>
-      <img src={logo} alt="" className='-mb-36 ml-24' />
+      <img src={logo} alt="" className='-mb-36 ml-24 max-[900px]:mb-0 max-[900px]:mt-10 max-[900px]:ml-10 ' />
       <div className='max-w-[1240px] mx-auto grid grid-cols-2 mr-24 md:grid-cols-6 border-b-2 border-white py-8'>
         {sections.map((section, index) => (
           <div key={index}>
-            <h6 className='font-bold  font-body ml-56 text-xl'>{section.title}</h6>
-            <ul className='list-none w-48 font-body ml-48'>
+            <h6 className='font-bold  font-body ml-56 text-xl max-[900px]:ml-10'>{section.title}</h6>
+            <ul className='list-none w-48 font-body ml-48 max-[900px]:ml-0'>
               {section.items.map((item, i) => (
                 <li
                   key={i}
@@ -62,7 +62,7 @@ function Footer () {
             </ul>
           </div>
         ))}
-        <div className=' flex ml-80 font-body font-bold flex-col sm:w-[300px] pt-4 text-4'>
+        <div className=' flex ml-80 font-body font-bold flex-col sm:w-[300px] pt-4 text-4 max-[900px]:ml-2'>
           <p className='mt-9 ml-8 text-xl'>Follow Us </p>
           <div className='flex gap-5 px-4 py-1'>
             {items.map((x, index) => {

@@ -4,12 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.slick-arrow{
-    color: red;
-    font-size: 50px;
-    position: absolute;
-    margin: 50px;
-    z-index:1;
-}
+ 
 
 

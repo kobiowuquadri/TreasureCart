@@ -1,6 +1,10 @@
 import earpiece from './Image/earpiece.png'
 import bag from './Image/bag.png'
 import watch from './Image/watch.png'
+import special1 from './Image/special1.png'
+import special2 from './Image/Special2.png'
+import special3 from './Image/special3.png'
+
 
 const Specialdata = [
     {
@@ -25,5 +29,16 @@ const Specialdata = [
         price: '$127.80',
     },
 ];
+const Responsive = [
+    {
+        image: [special1]
+    },
+    {
+        image: [special2]
+    },
+    {
+        image: [special3]
+    }
+]
 
-export default Specialdata;
+export {Specialdata, Responsive};

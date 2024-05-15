@@ -7,11 +7,15 @@ import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { FiUser } from "react-icons/fi";
+import Navbar from "../Navbar/navbar";
 const Search = () => {
   const [search, setSearch] = useState(" ");
   return (
-    <div>
-      <div
+    <div className="mt-0 pt-0">
+      <div className="flex">
+        <Navbar />
+      </div>
+      {/* <div
         className="navbar bg-[#945F21] font-body"
         style={{
           display: "flex",
@@ -36,9 +40,9 @@ const Search = () => {
           <FiUser className="text-white text-xl mr-8" />
           <IoCartOutline className="text-white text-xl" />
         </div>
-      </div>
+      </div> */}
 
-      <div className="flex justify-center m-10 mx-80 max-[900px]:mx-0">
+      <div className="flex justify-center m-10 mt-32 mx-80 max-[900px]:mx-0">
         <FaSearch className="text-zinc-500 text-2xl relative left-10 top-2 " />
         <input
           type="text"
@@ -64,7 +68,7 @@ const Search = () => {
         .map((val) => (
           <div className="m-2 bg-bck hover:shadow-2xl" key={val.id}>
             <div className=" flex justify-center  ">
-              <img src={val.image} alt={val.Name} />
+              <img src={val.image} alt={val.Name} className="max-[650px]:w-[150px] max-[650px]:h-[150px]" />
             </div>
             <div className=" p-2 ">
               <p className="text-xl font-body font-medium text-price mt-0 mb-0 mr-16 ">

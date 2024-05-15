@@ -17,9 +17,9 @@ const Products = () => {
   return (
     <div>
       <div>
-        <div className='grid p-10 grid-cols-3'>
+        <div className='grid p-10 grid-cols-3 max-[900px]:grid-cols-2 max-[900px]:p-0'>
           {Pdata.map((data) => (
-            <div className=' bg-bck shadow-md m-5 p-10 ' key={data.id}>
+            <div className=' bg-bck shadow-md m-5 p-10 max-[650px]:p-2 ' key={data.id}>
               <div className=' flex justify-center'>
                 <img
                   src={data.image}
@@ -27,15 +27,16 @@ const Products = () => {
                   width={200}
                   id='img'
                   alt={data.Name}
+                  className='max-[650px]:w-[150px] max-[650px]:h-[150px]'
                 />
               </div>
 
               <div>
-                <p className='text-4xl font-body text-secondary font-medium mb-0 pb-0'> {data.Name}</p>
-                <p className=' font-body text-desc text-sm'> {data.desc} </p>
-                <div className='flex'>
+                <p className='text-4xl font-body text-secondary font-medium mb-0 pb-0 max-[650px]:text-2xl'> {data.Name}</p>
+                <p className=' font-body text-desc text-sm max-[650px]:hidden '> {data.desc} </p>
+                <div className='flex max-[650px]:grid'>
               <p className='text-2xl font-body font-medium text-price mt-0 mb-0 mr-16 '>{data.price}</p> 
-              <button className='text-white bg-black border-0 rounded-full px-10 mx-0  text-xs hover:opacity-75 cursor-pointer ' 
+              <button className='text-white bg-black border-0 rounded-full px-10 mx-0 max-[650px]:py-2  text-xs hover:opacity-75 cursor-pointer ' 
               onClick={() => handleAddToCart(data)}>ADD TO CART</button>
             </div> 
               </div>

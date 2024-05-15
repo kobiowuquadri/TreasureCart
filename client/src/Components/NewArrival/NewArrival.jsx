@@ -5,7 +5,8 @@ import "slick-carousel/slick/slick-theme.css";
 import arrow1 from './NAimage/Arrow.png'
 import arrow2 from './NAimage/Arrow (1).png'
 import plus from './NAimage/+.png'
-import NAdata from './NAdata'
+import {NAdata} from './NAdata'
+import ResNew from "./ResNew";
 
 
 function NextArrow(props) {
@@ -42,8 +43,8 @@ function NewArrival() {
   };
   return (
     <div>
-    
-      <div className='bg-primary2  min-h-screen bg-my-image bg-no-repeat' >
+    <ResNew/>
+      <div className='bg-primary2  min-h-screen bg-my-image bg-no-repeat max-[900px]:hidden' >
   
 
     <Slider {...settings}>

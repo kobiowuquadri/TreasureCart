@@ -5,7 +5,8 @@ import "slick-carousel/slick/slick-theme.css";
 import arrow1 from '../NewArrival/NAimage/Arrow.png'
 import arrow2 from '../NewArrival/NAimage/Arrow (1).png'
 import plus from '../NewArrival/NAimage/+.png'
-import Specialdata from './specialdata'
+import {Specialdata} from './specialdata'
+import Resspecial from "./Resspecial";
 
 
 function NextArrow(props) {
@@ -42,8 +43,10 @@ function SpecialOffer() {
   };
   return (
     <div>
+
+      <Resspecial/>
     
-      <div className='bg-white -mb-20 min-h-screen bg-my-image bg-no-repeat' >
+      <div className='bg-white -mb-20 min-h-screen bg-my-image bg-no-repeat max-[900px]:hidden' >
   
 
     <Slider {...settings}>

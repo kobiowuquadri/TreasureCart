@@ -1,6 +1,6 @@
 const Admin = require('../Models/adminModel')
 const subAdmin = require('../Models/subadminModel')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const Product = require('../Models/productModel')
 const { User, passwordValidator } = require('../Models/userModels')

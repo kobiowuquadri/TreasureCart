@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const mongoose = require('mongoose')
 const { User, passwordValidator } = require('../Models/userModels')
 const jwt = require('jsonwebtoken')

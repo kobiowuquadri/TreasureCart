@@ -117,6 +117,7 @@ const updateUser = async (req, res) => {
       updatedUser
     })
   } catch (err) {
+    res.status(404).json({success: false, message: err.message })
     console.log(err.message)
   }
 }
@@ -182,30 +183,23 @@ const forgotPassword = async (req, res) => {
 
 const resetPassword = async (req, res) => {
   try {
-    const { userId, token, newPassword } = req.body;
-
-   
-    const hashedPassword = await bcrypt.hash(newPassword, 10); 
-    
+    const { userId, token, newPassword } = req.body;   
+    const hashedPassword = await bcrypt.hash(newPassword, 10);    
     
     const user = await User.findById(userId).select('password').lean();
     const oldHashedPassword = user.password;
     const SECRET = jwt_SECRET + oldHashedPassword;
-    jwt.verify(token, SECRET);
-
-    
+    jwt.verify(token, SECRET);    
     const passwordsMatch = await bcrypt.compare(newPassword, oldHashedPassword);
     if (passwordsMatch) {
       return res.status(400).json({ success: false, message: 'New password must be different from the old one' });
-    }
-
-   
+    }   
     const updatedUser = await User.findByIdAndUpdate(userId, { password: hashedPassword });
 
-    res.status(200).json({ success: true, message: 'Password reset successfully' });
+    res.status(200).json({ success: true, message: 'Password reset successfully', updatedUser });
   } catch (error) {
     console.error('Error resetting password:', error);
-    res.status(500).json({ success: false, message: 'Error resetting password' });
+    res.status(404).json({ success: false, message: error.message });
   }
 };
 

@@ -16,6 +16,7 @@ import AdminLogin from "./Components/Adminlogin/Adminlogin.jsx"
 import SignInWithGoogle from './testlogin/testlogin.jsx'
 import firebaseApp from "./testlogin/testlogin.jsx";
 import About from "./Components/AboutPage/About.jsx";
+import Dashboard from "./Components/Dashboard/Dashboard.jsx";
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
           <Route path="/admin" element={<AdminLogin />}></Route>
           <Route path="/test" element={<SignInWithGoogle />}></Route>
           <Route path="/aboutpage" element={<About />}></Route>
+          <Route path="/dashboard" element={<Dashboard />}></Route>
         </Routes>
         </ProductImageProvider>
       </div>
